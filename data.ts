@@ -8,27 +8,57 @@ export const videos: VideoItem[] = [
   // --- BASICS (Kihon) ---
   // Stances (Tachikata)
   {
-    id: "gndORk_8HWY",
-    title: "Basic Stances: Zenkutsu, Shiko, Moto, Neko Ashi Dachi",
+    id: "gndORk_8HWY", // Placeholder
+    title: "Tachikata (Stances) Overview",
     category: VideoCategory.Basics,
     belt: BeltLevel.White,
-    description: "Fundamental stances of Shito-Ryu including Forward, Horse, Natural, and Cat stances."
+    description: "Overview of fundamental stances: Heisoku, Musubi, Heiko, Hachiji, Uchi Hachiji, Shiko, Moto, Zenkutsu, Neko Ashi, Sanchin, Kosa, Kokutsu, Renoji."
   },
+  {
+    id: "gndORk_8HWY",
+    title: "Zenkutsu Dachi (Forward Stance)",
+    category: VideoCategory.Basics,
+    belt: BeltLevel.White,
+    description: "Detailed breakdown of the Forward Stance, focusing on weight distribution and hip alignment."
+  },
+  {
+    id: "gndORk_8HWY",
+    title: "Shiko Dachi (Square Stance)",
+    category: VideoCategory.Basics,
+    belt: BeltLevel.White,
+    description: "The Sumo/Square stance essential for Shito-Ryu stability and leg strength."
+  },
+  {
+    id: "gndORk_8HWY",
+    title: "Neko Ashi Dachi (Cat Stance)",
+    category: VideoCategory.Basics,
+    belt: BeltLevel.White,
+    description: "Cat Foot Stance focusing on rear-leg weight distribution and agility."
+  },
+  
   // Blocks (Uke Waza)
   {
-    id: "gndORk_8HWY", // Placeholder ID reused for demo
-    title: "Basic Blocks: Harai Uke, Yoko Uke, Jodan Uke",
+    id: "gndORk_8HWY",
+    title: "Uke Waza: Gedan Barai & Yoko Uke",
     category: VideoCategory.Basics,
     belt: BeltLevel.White,
-    description: "Downward sweep, Inside block, and Rising block techniques."
+    description: "Downward Block (Gedan Barai) and Inside Block (Yoko Uke)."
   },
   {
     id: "XJbWw_hQ5ko", 
     title: "Shuto Uke (Knife Hand Block)",
     category: VideoCategory.Basics,
     belt: BeltLevel.Yellow,
-    description: "Proper form for knife hand guarding block."
+    description: "Proper form for knife hand guarding block in Kokutsu Dachi or Neko Ashi Dachi."
   },
+  {
+    id: "gndORk_8HWY",
+    title: "Advanced Blocks: Kake Uke & Mawashi Uke",
+    category: VideoCategory.Basics,
+    belt: BeltLevel.Green,
+    description: "Hook block (Kake Uke) and Roundhouse block (Mawashi Uke) techniques."
+  },
+
   // Strikes (Tsuki Waza)
   {
     id: "gndORk_8HWY",
@@ -37,13 +67,35 @@ export const videos: VideoItem[] = [
     belt: BeltLevel.White,
     description: "Forefist punch, Lunge punch, and Reverse punch mechanics."
   },
+  {
+    id: "gndORk_8HWY",
+    title: "Striking Variations: Ura, Kagi, & Tate Tsuki",
+    category: VideoCategory.Basics,
+    belt: BeltLevel.Yellow,
+    description: "Inverted punch (Ura), Hook punch (Kagi), and Vertical punch (Tate)."
+  },
+
   // Kicks (Geri Waza)
   {
     id: "gndORk_8HWY",
-    title: "Geri Waza: Mae Geri, Mawashi Geri, Yoko Geri",
+    title: "Geri Waza: Mae Geri (Front Kick)",
     category: VideoCategory.Basics,
     belt: BeltLevel.White,
-    description: "Front kick, Roundhouse kick, and Side kick fundamentals."
+    description: "Front snap kick fundamentals and ball-of-foot striking."
+  },
+  {
+    id: "gndORk_8HWY",
+    title: "Geri Waza: Mawashi Geri (Roundhouse Kick)",
+    category: VideoCategory.Basics,
+    belt: BeltLevel.White,
+    description: "Roundhouse kick hip rotation and impact."
+  },
+  {
+    id: "gndORk_8HWY",
+    title: "Geri Waza: Yoko Geri (Side Kick)",
+    category: VideoCategory.Basics,
+    belt: BeltLevel.Yellow,
+    description: "Side thrust kick (Kekomi) and Side snap kick (Keage)."
   },
 
   // --- KATAS ---
@@ -125,6 +177,10 @@ export const terminology: TerminologyItem[] = [
   { term: "Zenkutsu Dachi", translation: "Forward Stance", category: "Stances" },
   { term: "Shiko Dachi", translation: "Horse/Sumo Stance", category: "Stances" },
   { term: "Neko Ashi Dachi", translation: "Cat Stance", category: "Stances" },
+  { term: "Kokutsu Dachi", translation: "Back Stance", category: "Stances" },
+  { term: "Sanchin Dachi", translation: "Hourglass Stance", category: "Stances" },
+  { term: "Heiko Dachi", translation: "Parallel Stance", category: "Stances" },
+  { term: "Musubi Dachi", translation: "Attention Stance (Heels together)", category: "Stances" },
 ];
 
 export const downloads: DownloadItem[] = [
