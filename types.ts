@@ -19,6 +19,7 @@ export enum VideoCategory {
 
 export interface VideoItem {
   id: string; // YouTube ID
+  secondaryId?: string; // Optional second video for split view
   title: string;
   category: VideoCategory;
   belt?: BeltLevel;

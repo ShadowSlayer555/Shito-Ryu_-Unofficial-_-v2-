@@ -18,27 +18,36 @@ const Calendar: React.FC = () => {
       <div className="bg-white rounded-xl shadow-md overflow-hidden border border-gray-200">
         
         {/* Banner / Header */}
-        <div className="bg-gray-50 p-8 border-b border-gray-200 text-center">
-            <h2 className="text-2xl font-bold text-gray-800 mb-4">Official Karate BC Calendar</h2>
-            <p className="text-gray-600 mb-6">
-                For the most up-to-date list of provincial tournaments, technical seminars, and official events, 
-                please refer to the Karate BC website.
-            </p>
+        <div className="bg-gray-50 p-4 border-b border-gray-200 flex flex-col sm:flex-row justify-between items-center gap-4">
+            <div>
+                <h2 className="text-xl font-bold text-gray-800">Official Karate BC Calendar</h2>
+                <p className="text-sm text-gray-500">Source: karatebc.org</p>
+            </div>
             <a 
-                href="https://www.karatebc.org/calendar/" 
+                href="https://www.karatebc.org/kbc-calendar-grid-view/" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center px-6 py-3 bg-karate-red text-white font-bold rounded-full hover:bg-red-700 transition transform hover:scale-105 shadow-md"
+                className="inline-flex items-center justify-center px-4 py-2 bg-karate-red text-white text-sm font-bold rounded-full hover:bg-red-700 transition transform hover:scale-105 shadow-md"
             >
-                View Full Calendar <ExternalLink size={18} className="ml-2" />
+                Open in New Tab <ExternalLink size={16} className="ml-2" />
             </a>
         </div>
 
-        {/* Placeholder / Embed Mockup */}
-        <div className="p-8">
+        {/* Embed */}
+        <div className="w-full bg-white h-[800px]">
+            <iframe 
+                src="https://www.karatebc.org/kbc-calendar-grid-view/" 
+                title="Karate BC Calendar"
+                className="w-full h-full border-0"
+                loading="lazy"
+                sandbox="allow-same-origin allow-scripts allow-popups allow-forms"
+            ></iframe>
+        </div>
+        
+        <div className="p-8 border-t border-gray-200 bg-gray-50">
             <h3 className="text-lg font-bold text-gray-800 mb-4">Upcoming Highlights</h3>
             <div className="space-y-4">
-                <div className="flex flex-col md:flex-row gap-4 p-4 rounded-lg bg-gray-50 border border-gray-100 hover:border-karate-red transition-colors">
+                <div className="flex flex-col md:flex-row gap-4 p-4 rounded-lg bg-white border border-gray-100 hover:border-karate-red transition-colors shadow-sm">
                     <div className="flex-shrink-0 w-16 h-16 bg-red-100 text-karate-red rounded-lg flex flex-col items-center justify-center font-bold">
                         <span className="text-xs uppercase">NOV</span>
                         <span className="text-2xl">16</span>
@@ -50,7 +59,7 @@ const Calendar: React.FC = () => {
                     </div>
                 </div>
 
-                <div className="flex flex-col md:flex-row gap-4 p-4 rounded-lg bg-gray-50 border border-gray-100 hover:border-karate-red transition-colors">
+                <div className="flex flex-col md:flex-row gap-4 p-4 rounded-lg bg-white border border-gray-100 hover:border-karate-red transition-colors shadow-sm">
                     <div className="flex-shrink-0 w-16 h-16 bg-blue-100 text-blue-700 rounded-lg flex flex-col items-center justify-center font-bold">
                         <span className="text-xs uppercase">DEC</span>
                         <span className="text-2xl">02</span>
@@ -59,18 +68,6 @@ const Calendar: React.FC = () => {
                         <h4 className="font-bold text-gray-900">Black Belt Grading (Dan Testing)</h4>
                         <p className="text-sm text-gray-600">Satokai Honbu Dojo • 10:00 AM</p>
                         <p className="text-sm text-gray-500 mt-1">Invitational grading for Shodan and above candidates.</p>
-                    </div>
-                </div>
-
-                 <div className="flex flex-col md:flex-row gap-4 p-4 rounded-lg bg-gray-50 border border-gray-100 hover:border-karate-red transition-colors">
-                    <div className="flex-shrink-0 w-16 h-16 bg-gray-200 text-gray-700 rounded-lg flex flex-col items-center justify-center font-bold">
-                        <span className="text-xs uppercase">JAN</span>
-                        <span className="text-2xl">15</span>
-                    </div>
-                    <div>
-                        <h4 className="font-bold text-gray-900">Winter Training Seminar</h4>
-                        <p className="text-sm text-gray-600">Burnaby Mountain Dojo • 1:00 PM - 4:00 PM</p>
-                        <p className="text-sm text-gray-500 mt-1">Focus on advanced kumite drills and conditioning.</p>
                     </div>
                 </div>
             </div>

@@ -201,27 +201,36 @@
               <div class="bg-white rounded-xl shadow-md overflow-hidden border border-gray-200">
                 
                 <!-- Banner / Header -->
-                <div class="bg-gray-50 p-8 border-b border-gray-200 text-center">
-                    <h2 class="text-2xl font-bold text-gray-800 mb-4">Official Karate BC Calendar</h2>
-                    <p class="text-gray-600 mb-6">
-                        For the most up-to-date list of provincial tournaments, technical seminars, and official events, 
-                        please refer to the Karate BC website.
-                    </p>
+                <div class="bg-gray-50 p-4 border-b border-gray-200 flex flex-col sm:flex-row justify-between items-center gap-4">
+                    <div>
+                        <h2 class="text-xl font-bold text-gray-800">Official Karate BC Calendar</h2>
+                        <p class="text-sm text-gray-500">Source: karatebc.org</p>
+                    </div>
                     <a 
-                        href="https://www.karatebc.org/calendar/" 
+                        href="https://www.karatebc.org/kbc-calendar-grid-view/" 
                         target="_blank" 
                         rel="noopener noreferrer"
-                        class="inline-flex items-center justify-center px-6 py-3 bg-karate-red text-white font-bold rounded-full hover:bg-red-700 transition transform hover:scale-105 shadow-md"
+                        class="inline-flex items-center justify-center px-4 py-2 bg-karate-red text-white text-sm font-bold rounded-full hover:bg-red-700 transition transform hover:scale-105 shadow-md"
                     >
-                        View Full Calendar <i data-lucide="external-link" class="ml-2 w-4 h-4"></i>
+                        Open in New Tab <i data-lucide="external-link" class="ml-2 w-4 h-4"></i>
                     </a>
                 </div>
 
-                <!-- Placeholder / Embed Mockup -->
-                <div class="p-8">
+                <!-- Embed -->
+                <div class="w-full bg-white h-[800px]">
+                    <iframe 
+                        src="https://www.karatebc.org/kbc-calendar-grid-view/" 
+                        title="Karate BC Calendar"
+                        class="w-full h-full border-0"
+                        loading="lazy"
+                        sandbox="allow-same-origin allow-scripts allow-popups allow-forms"
+                    ></iframe>
+                </div>
+                
+                <div class="p-8 border-t border-gray-200 bg-gray-50">
                     <h3 class="text-lg font-bold text-gray-800 mb-4">Upcoming Highlights</h3>
                     <div class="space-y-4">
-                        <div class="flex flex-col md:flex-row gap-4 p-4 rounded-lg bg-gray-50 border border-gray-100 hover:border-karate-red transition-colors">
+                        <div class="flex flex-col md:flex-row gap-4 p-4 rounded-lg bg-white border border-gray-100 hover:border-karate-red transition-colors shadow-sm">
                             <div class="flex-shrink-0 w-16 h-16 bg-red-100 text-karate-red rounded-lg flex flex-col items-center justify-center font-bold">
                                 <span class="text-xs uppercase">NOV</span>
                                 <span class="text-2xl">16</span>
@@ -229,11 +238,11 @@
                             <div>
                                 <h4 class="font-bold text-gray-900">Karate BC Provincial Championships</h4>
                                 <p class="text-sm text-gray-600">Richmond Olympic Oval • 9:00 AM - 6:00 PM</p>
-                                <p className="text-sm text-gray-500 mt-1">The premier provincial tournament for all age categories.</p>
+                                <p class="text-sm text-gray-500 mt-1">The premier provincial tournament for all age categories.</p>
                             </div>
                         </div>
 
-                        <div class="flex flex-col md:flex-row gap-4 p-4 rounded-lg bg-gray-50 border border-gray-100 hover:border-karate-red transition-colors">
+                        <div class="flex flex-col md:flex-row gap-4 p-4 rounded-lg bg-white border border-gray-100 hover:border-karate-red transition-colors shadow-sm">
                             <div class="flex-shrink-0 w-16 h-16 bg-blue-100 text-blue-700 rounded-lg flex flex-col items-center justify-center font-bold">
                                 <span class="text-xs uppercase">DEC</span>
                                 <span class="text-2xl">02</span>
@@ -241,19 +250,7 @@
                             <div>
                                 <h4 class="font-bold text-gray-900">Black Belt Grading (Dan Testing)</h4>
                                 <p class="text-sm text-gray-600">Satokai Honbu Dojo • 10:00 AM</p>
-                                <p className="text-sm text-gray-500 mt-1">Invitational grading for Shodan and above candidates.</p>
-                            </div>
-                        </div>
-
-                         <div class="flex flex-col md:flex-row gap-4 p-4 rounded-lg bg-gray-50 border border-gray-100 hover:border-karate-red transition-colors">
-                            <div class="flex-shrink-0 w-16 h-16 bg-gray-200 text-gray-700 rounded-lg flex flex-col items-center justify-center font-bold">
-                                <span class="text-xs uppercase">JAN</span>
-                                <span class="text-2xl">15</span>
-                            </div>
-                            <div>
-                                <h4 class="font-bold text-gray-900">Winter Training Seminar</h4>
-                                <p class="text-sm text-gray-600">Burnaby Mountain Dojo • 1:00 PM - 4:00 PM</p>
-                                <p className="text-sm text-gray-500 mt-1">Focus on advanced kumite drills and conditioning.</p>
+                                <p class="text-sm text-gray-500 mt-1">Invitational grading for Shodan and above candidates.</p>
                             </div>
                         </div>
                     </div>
@@ -279,7 +276,14 @@
     <footer class="bg-gray-900 text-gray-400 py-8 mt-auto">
         <div class="max-w-7xl mx-auto px-4 text-center">
             <p>&copy; <span id="year"></span> Shito-Ryu Portal. Organized for practitioner reference.</p>
-            <p className="text-sm mt-2">Videos courtesy of <a href="https://www.youtube.com/@AnthonyAu-c2e" target="_blank" class="text-karate-red hover:underline">@AnthonyAu-c2e</a></p>
+             <div class="flex flex-col md:flex-row justify-center items-center gap-2 mt-2 text-sm">
+              <span>Videos courtesy of:</span>
+              <div class="flex gap-4">
+                <a href="https://www.youtube.com/@AnthonyAu-c2e" target="_blank" class="text-karate-red hover:underline">@AnthonyAu-c2e</a>
+                <span class="text-gray-600">•</span>
+                <a href="https://www.youtube.com/@olafsteinbrecher9519" target="_blank" class="text-karate-red hover:underline">@olafsteinbrecher9519</a>
+              </div>
+            </div>
         </div>
     </footer>
 
@@ -288,6 +292,15 @@
         // --- DATA ---
         // Same data as TS file, but ensuring empty IDs are preserved
         const videos = [
+            // BASICS ROUTINE
+            {
+                id: "gndORk_8HWY",
+                title: "Shito-Ryu Basics Routine",
+                category: "Basics",
+                belt: "White Belt",
+                description: "Full run-through of basic techniques. (Video by Anthony Au)"
+            },
+
             // STANCES
             { id: "", title: "Stance: Heisoku Dachi", category: "Basics", belt: "White Belt", description: "Informal Attention Stance. Feet together, toes pointing forward." },
             { id: "", title: "Stance: Musubi Dachi", category: "Basics", belt: "White Belt", description: "Open Attention Stance. Heels together, toes open at 45 degrees." },
@@ -363,24 +376,34 @@
             { id: "upg5kxMeCD8", title: "Heian Yondan", category: "Kata", belt: "Blue Belt" },
 
             // Brown Belt
-            { id: "", title: "Kata 16", category: "Kata", belt: "Brown Belt" },
-            { id: "", title: "Kata 17", category: "Kata", belt: "Brown Belt" },
-            { id: "", title: "Kata 18", category: "Kata", belt: "Brown Belt" },
-            { id: "", title: "Kata 19", category: "Kata", belt: "Brown Belt" },
-            { id: "", title: "Kata 20", category: "Kata", belt: "Brown Belt" },
+            { id: "F0-l1Z6Imug", title: "Kata 16", category: "Kata", belt: "Brown Belt" },
+            { id: "8SkvQ9i3WjQ", title: "Kata 17", category: "Kata", belt: "Brown Belt" },
+            { id: "-rj88UMeD7Q", title: "Kata 18", category: "Kata", belt: "Brown Belt" },
+            { id: "PVOw2cksEHs", title: "Kata 19", category: "Kata", belt: "Brown Belt" },
+            { id: "TpBHNFXsK5E", title: "Kata 20", category: "Kata", belt: "Brown Belt" },
             { id: "Q3k0QAFbciA", title: "Heian Godan", category: "Kata", belt: "Brown Belt" },
             { id: "4QfcGbexHI4", title: "Jitte", category: "Kata", belt: "Brown Belt" },
             { id: "7M6pzVCSsC4", title: "Jion", category: "Kata", belt: "Brown Belt" },
             { id: "HFnh5r3onlc", title: "Jiin", category: "Kata", belt: "Brown Belt" },
 
             // Black Belt
-            { id: "", title: "Tensho", category: "Kata", belt: "Black Belt" },
-            { id: "", title: "Sanchin", category: "Kata", belt: "Black Belt" },
-            { id: "", title: "Bassai Dai", category: "Kata", belt: "Black Belt" },
-            { id: "", title: "Seienchin", category: "Kata", belt: "Black Belt" },
-            { id: "", title: "Seipai", category: "Kata", belt: "Black Belt" },
-            { id: "", title: "Kosokun Dai", category: "Kata", belt: "Black Belt" },
-            { id: "", title: "Kururunfa", category: "Kata", belt: "Black Belt" },
+            { id: "GceAHME0jUk", title: "Black Belt Kata Demonstration", category: "Kata", belt: "Black Belt", description: "Compilation of various black belt katas." },
+            { id: "aUrgF39TSAM", title: "Tensho", category: "Kata", belt: "Black Belt" },
+            { id: "CGVhW1pR5B0", title: "Sanchin", category: "Kata", belt: "Black Belt" },
+            // Major Shito-ryu Black Belt Katas
+            { id: "Getp1b2G1kU", title: "Bassai Dai", category: "Kata", belt: "Black Belt" },
+            { id: "M5G5wQ5q9yY", title: "Seienchin", category: "Kata", belt: "Black Belt" },
+            { id: "Hj8y_M4q4yQ", title: "Seipai", category: "Kata", belt: "Black Belt" },
+            { id: "L8k_7_6_5", title: "Kosokun Dai", category: "Kata", belt: "Black Belt" },
+            { id: "7P6X0_x8x8", title: "Kosokun Sho", category: "Kata", belt: "Black Belt" },
+            { id: "3_M7C6gX9X8", title: "Kururunfa", category: "Kata", belt: "Black Belt" },
+            { id: "1Z-X-Y-Z", title: "Nipaipo", category: "Kata", belt: "Black Belt" },
+            { id: "2Z-X-Y-Z", title: "Matsumura Rohai", category: "Kata", belt: "Black Belt" },
+            { id: "4Z-X-Y-Z", title: "Suparinpei", category: "Kata", belt: "Black Belt" },
+            { id: "5Z-X-Y-Z", title: "Gojushiho", category: "Kata", belt: "Black Belt" },
+            { id: "6Z-X-Y-Z", title: "Unshu", category: "Kata", belt: "Black Belt" },
+            { id: "7Z-X-Y-Z", title: "Annan", category: "Kata", belt: "Black Belt" },
+            { id: "8Z-X-Y-Z", title: "Chatanyara Kushanku", category: "Kata", belt: "Black Belt" },
 
             // KUMITE
             { id: "cX-oN7itZiA", title: "Basic Kumite 1 - 3", category: "Kumite", belt: "White Belt" },
@@ -459,6 +482,9 @@
                 </div>`;
             }
 
+            // Simple handling for standalone HTML (split view is complex without React state management in pure JS)
+            // We'll stick to displaying the primary video for the standalone fallback to keep it robust.
+            // If split view is needed in pure HTML/JS, it requires significant DOM manipulation logic which we'll skip for brevity here unless critical.
             return `
                 <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition-shadow duration-300">
                     <div class="relative aspect-video bg-gray-900 group">

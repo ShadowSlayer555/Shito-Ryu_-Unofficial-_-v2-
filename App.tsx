@@ -41,7 +41,14 @@ const App: React.FC = () => {
         <footer className="bg-gray-900 text-gray-400 py-8">
           <div className="max-w-7xl mx-auto px-4 text-center">
             <p>&copy; {new Date().getFullYear()} Shito-Ryu Portal. Organized for practitioner reference.</p>
-            <p className="text-sm mt-2">Videos courtesy of <a href="https://www.youtube.com/@AnthonyAu-c2e" target="_blank" rel="noreferrer" className="text-karate-red hover:underline">@AnthonyAu-c2e</a></p>
+            <div className="flex flex-col md:flex-row justify-center items-center gap-2 mt-2 text-sm">
+              <span>Videos courtesy of:</span>
+              <div className="flex gap-4">
+                <a href="https://www.youtube.com/@AnthonyAu-c2e" target="_blank" rel="noreferrer" className="text-karate-red hover:underline">@AnthonyAu-c2e</a>
+                <span className="text-gray-600">•</span>
+                <a href="https://www.youtube.com/@olafsteinbrecher9519" target="_blank" rel="noreferrer" className="text-karate-red hover:underline">@olafsteinbrecher9519</a>
+              </div>
+            </div>
           </div>
         </footer>
       </div>
