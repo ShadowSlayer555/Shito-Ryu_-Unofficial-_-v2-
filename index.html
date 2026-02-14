@@ -69,6 +69,7 @@
                     </div>
                     
                     <button onclick="router('basics')" class="nav-link px-3 py-2 rounded-md text-sm font-medium flex items-center gap-1.5 text-gray-700 hover:bg-gray-100"><i data-lucide="shield" class="w-4 h-4"></i> Basics</button>
+                    <button onclick="router('advanced')" class="nav-link px-3 py-2 rounded-md text-sm font-medium flex items-center gap-1.5 text-gray-700 hover:bg-gray-100"><i data-lucide="zap" class="w-4 h-4"></i> Advanced</button>
                     <button onclick="router('katas')" class="nav-link px-3 py-2 rounded-md text-sm font-medium flex items-center gap-1.5 text-gray-700 hover:bg-gray-100"><i data-lucide="video" class="w-4 h-4"></i> Katas</button>
                     <button onclick="router('kumite')" class="nav-link px-3 py-2 rounded-md text-sm font-medium flex items-center gap-1.5 text-gray-700 hover:bg-gray-100"><i data-lucide="award" class="w-4 h-4"></i> Kumite</button>
                     <button onclick="router('terminology')" class="nav-link px-3 py-2 rounded-md text-sm font-medium flex items-center gap-1.5 text-gray-700 hover:bg-gray-100"><i data-lucide="book-open" class="w-4 h-4"></i> Terminology</button>
@@ -90,6 +91,7 @@
                  <input type="text" placeholder="Search..." class="w-full pl-4 pr-4 py-2 border border-gray-300 rounded-full text-sm mb-2" onkeyup="handleSearch(this.value)">
             </div>
             <button onclick="router('basics'); toggleMobileMenu()" class="block w-full text-left px-4 py-3 text-base font-medium text-gray-700 hover:bg-gray-100">Basics</button>
+            <button onclick="router('advanced'); toggleMobileMenu()" class="block w-full text-left px-4 py-3 text-base font-medium text-gray-700 hover:bg-gray-100">Advanced</button>
             <button onclick="router('katas'); toggleMobileMenu()" class="block w-full text-left px-4 py-3 text-base font-medium text-gray-700 hover:bg-gray-100">Katas</button>
             <button onclick="router('kumite'); toggleMobileMenu()" class="block w-full text-left px-4 py-3 text-base font-medium text-gray-700 hover:bg-gray-100">Kumite</button>
             <button onclick="router('terminology'); toggleMobileMenu()" class="block w-full text-left px-4 py-3 text-base font-medium text-gray-700 hover:bg-gray-100">Terminology</button>
@@ -130,6 +132,14 @@
                         <h3 class="text-xl font-bold mb-2">Basic Techniques</h3>
                         <p class="text-gray-600 text-sm">Master the fundamental blocks, punches, kicks, and stances.</p>
                     </div>
+                     <!-- Advanced Card -->
+                     <div onclick="router('advanced')" class="group cursor-pointer bg-white p-6 rounded-xl shadow-md hover:shadow-xl transition-all border border-gray-100 hover:border-karate-red">
+                        <div class="w-14 h-14 bg-red-100 rounded-full flex items-center justify-center text-karate-red mb-4 group-hover:bg-karate-red group-hover:text-white transition-colors">
+                            <i data-lucide="zap" class="w-7 h-7"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2">Advanced Techniques</h3>
+                        <p class="text-gray-600 text-sm">Complex strikes, spinning kicks, and higher level applications.</p>
+                    </div>
                     <!-- Kata Card -->
                     <div onclick="router('katas')" class="group cursor-pointer bg-white p-6 rounded-xl shadow-md hover:shadow-xl transition-all border border-gray-100 hover:border-karate-red">
                         <div class="w-14 h-14 bg-red-100 rounded-full flex items-center justify-center text-karate-red mb-4 group-hover:bg-karate-red group-hover:text-white transition-colors">
@@ -158,7 +168,7 @@
             </div>
         </section>
 
-        <!-- GENERIC GRID SECTION TEMPLATE (Used for Basics, Katas, Kumite, Search) -->
+        <!-- GENERIC GRID SECTION TEMPLATE (Used for Basics, Advanced, Katas, Kumite, Search) -->
         <section id="grid-page" class="page-section max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
             <h1 id="page-title" class="text-3xl font-bold text-gray-900 mb-2">Title</h1>
             <p id="page-description" class="text-gray-600 mb-8">Description</p>
@@ -232,6 +242,16 @@
             { id: "gndORk_8HWY", title: "Yoko Geri", category: "Basics", belt: "Yellow Belt", description: "Side Kick. Can be performed as snap (Keage) or thrust (Kekomi)." },
             { id: "gndORk_8HWY", title: "Fumikomi Geri", category: "Basics", belt: "Green Belt", description: "Stomp Kick. Targeting the opponent's knee or foot." },
             { id: "gndORk_8HWY", title: "Ushiro Geri", category: "Basics", belt: "Green Belt", description: "Back Kick. Thrusting kick to the rear." },
+
+            // ADVANCED TECHNIQUES
+            { id: "gndORk_8HWY", title: "Ura Mawashi Geri", category: "Advanced", belt: "Black Belt", description: "Hook Kick. Striking with the heel or sole in a reverse circular motion." },
+            { id: "gndORk_8HWY", title: "Ushiro Mawashi Geri", category: "Advanced", belt: "Black Belt", description: "Spinning Hook Kick (Wheel Kick). A powerful rotating kick targeting the head." },
+            { id: "gndORk_8HWY", title: "Kaiten Mawashi Geri", category: "Advanced", belt: "Black Belt", description: "Rolling Wheel Kick. A sacrificial kick rolling the body to deliver power." },
+            { id: "gndORk_8HWY", title: "Tobi Yoko Geri", category: "Advanced", belt: "Brown Belt", description: "Jumping Side Kick. Generating power from the jump for a thrusting kick." },
+            { id: "gndORk_8HWY", title: "Kakato Otoshi", category: "Advanced", belt: "Brown Belt", description: "Axe Kick. Bringing the heel down vertically on the opponent." },
+            { id: "gndORk_8HWY", title: "Haito Uchi", category: "Advanced", belt: "Brown Belt", description: "Ridge Hand Strike. Striking with the inner edge of the hand (thumb tucked)." },
+            { id: "gndORk_8HWY", title: "Washide Uchi", category: "Advanced", belt: "Black Belt", description: "Eagle Hand Strike. Finger tips converged to strike soft targets." },
+            { id: "gndORk_8HWY", title: "Kake Uke", category: "Advanced", belt: "Brown Belt", description: "Hooking Block. Using the wrist to hook and control an incoming strike." },
 
             // KATAS
             { id: "O9YlRkv8Su8", title: "Kata 1: Kihon Kata Ichi", category: "Kata", belt: "White Belt" },
@@ -352,7 +372,7 @@
             `;
         }
 
-        // Render generic grid pages (Basics, Katas, Kumite, Search)
+        // Render generic grid pages (Basics, Advanced, Katas, Kumite, Search)
         function renderGridPage(category, title, description, filterBelt = 'All') {
             const grid = document.getElementById('video-grid');
             const pageTitle = document.getElementById('page-title');
@@ -467,6 +487,8 @@
                 document.getElementById('grid-page').classList.add('active');
                 if (route === 'basics') {
                     renderGridPage('Basics', 'Basic Techniques', 'Fundamental blocks, strikes, kicks, and stances.');
+                } else if (route === 'advanced') {
+                    renderGridPage('Advanced', 'Advanced Techniques', 'Complex strikes, spinning kicks, and higher level applications.');
                 } else if (route === 'katas') {
                     renderGridPage('Kata', 'Kata Library', 'Select your belt level to view required forms.', 'All');
                 } else if (route === 'kumite') {

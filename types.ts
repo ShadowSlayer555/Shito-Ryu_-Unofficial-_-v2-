@@ -11,6 +11,7 @@ export enum BeltLevel {
 
 export enum VideoCategory {
   Basics = "Basics",
+  Advanced = "Advanced",
   Kata = "Kata",
   Kumite = "Kumite",
   Other = "Other"

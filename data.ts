@@ -201,6 +201,64 @@ export const videos: VideoItem[] = [
     description: "Back Kick. Thrusting kick to the rear."
   },
 
+  // --- ADVANCED TECHNIQUES ---
+  {
+    id: "gndORk_8HWY",
+    title: "Ura Mawashi Geri",
+    category: VideoCategory.Advanced,
+    belt: BeltLevel.Black,
+    description: "Hook Kick. Striking with the heel or sole in a reverse circular motion."
+  },
+  {
+    id: "gndORk_8HWY",
+    title: "Ushiro Mawashi Geri",
+    category: VideoCategory.Advanced,
+    belt: BeltLevel.Black,
+    description: "Spinning Hook Kick (Wheel Kick). A powerful rotating kick targeting the head."
+  },
+  {
+    id: "gndORk_8HWY",
+    title: "Kaiten Mawashi Geri",
+    category: VideoCategory.Advanced,
+    belt: BeltLevel.Black,
+    description: "Rolling Wheel Kick. A sacrificial kick rolling the body to deliver power."
+  },
+  {
+    id: "gndORk_8HWY",
+    title: "Tobi Yoko Geri",
+    category: VideoCategory.Advanced,
+    belt: BeltLevel.Brown,
+    description: "Jumping Side Kick. Generating power from the jump for a thrusting kick."
+  },
+  {
+    id: "gndORk_8HWY",
+    title: "Kakato Otoshi",
+    category: VideoCategory.Advanced,
+    belt: BeltLevel.Brown,
+    description: "Axe Kick. Bringing the heel down vertically on the opponent."
+  },
+  {
+    id: "gndORk_8HWY",
+    title: "Haito Uchi",
+    category: VideoCategory.Advanced,
+    belt: BeltLevel.Brown,
+    description: "Ridge Hand Strike. Striking with the inner edge of the hand (thumb tucked)."
+  },
+  {
+    id: "gndORk_8HWY",
+    title: "Washide Uchi",
+    category: VideoCategory.Advanced,
+    belt: BeltLevel.Black,
+    description: "Eagle Hand Strike. Finger tips converged to strike soft targets."
+  },
+  {
+    id: "gndORk_8HWY",
+    title: "Kake Uke",
+    category: VideoCategory.Advanced,
+    belt: BeltLevel.Brown,
+    description: "Hooking Block. Using the wrist to hook and control an incoming strike."
+  },
+
   // --- KATAS ---
   // White Belt
   { id: "O9YlRkv8Su8", title: "Kata 1: Kihon Kata Ichi", category: VideoCategory.Kata, belt: BeltLevel.White },
