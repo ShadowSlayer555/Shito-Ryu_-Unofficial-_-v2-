@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { NavLink, useNavigate } from 'react-router-dom';
-import { Menu, X, Search, Download, BookOpen, Video, Shield, Award } from 'lucide-react';
+import { Menu, X, Search, Download, BookOpen, Video, Shield, Award, Calendar, Zap } from 'lucide-react';
 
 const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -17,8 +17,10 @@ const Navbar: React.FC = () => {
 
   const navItems = [
     { name: 'Basics', path: '/basics', icon: <Shield size={18} /> },
+    { name: 'Advanced', path: '/advanced', icon: <Zap size={18} /> },
     { name: 'Katas', path: '/katas', icon: <Video size={18} /> },
     { name: 'Kumite', path: '/kumite', icon: <Award size={18} /> },
+    { name: 'Calendar', path: '/calendar', icon: <Calendar size={18} /> },
     { name: 'Terminology', path: '/terminology', icon: <BookOpen size={18} /> },
     { name: 'Downloads', path: '/downloads', icon: <Download size={18} /> },
   ];
