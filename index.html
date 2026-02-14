@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Satokai Shito-Ryu Portal</title>
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
       tailwind.config = {
@@ -20,29 +21,466 @@
         }
       }
     </script>
-    <!-- Babel Standalone for in-browser JSX/TSX compilation -->
-    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
-    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
-      body { font-family: 'Inter', sans-serif; }
+        body { font-family: 'Inter', sans-serif; }
+        .page-section { display: none; } /* Hidden by default */
+        .page-section.active { display: block; animation: fadeIn 0.3s ease-in-out; }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
     </style>
-    <script type="importmap">
+<script type="importmap">
 {
   "imports": {
-    "react": "https://esm.sh/react@18.2.0",
-    "react-dom/client": "https://esm.sh/react-dom@18.2.0/client",
-    "react-router-dom": "https://esm.sh/react-router-dom@6.22.3?deps=react@18.2.0,react-dom@18.2.0",
-    "lucide-react": "https://esm.sh/lucide-react@0.344.0?deps=react@18.2.0",
+    "react": "https://esm.sh/react@^19.2.4",
     "react-dom/": "https://esm.sh/react-dom@^19.2.4/",
-    "react/": "https://esm.sh/react@^19.2.4/"
+    "react/": "https://esm.sh/react@^19.2.4/",
+    "lucide-react": "https://esm.sh/lucide-react@^0.564.0",
+    "react-router-dom": "https://esm.sh/react-router-dom@^7.13.0"
   }
 }
 </script>
 </head>
-  <body class="bg-gray-50 text-gray-900">
-    <div id="root"></div>
-    <!-- Entry point with type="text/babel" and data-type="module" -->
-    <script type="text/babel" data-type="module" data-presets="react,typescript" src="./index.tsx"></script>
-  </body>
+<body class="bg-gray-50 text-gray-900 flex flex-col min-h-screen">
+
+    <!-- Navigation -->
+    <nav class="bg-white shadow-md sticky top-0 z-50 border-t-4 border-karate-red">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <!-- Logo -->
+                <div class="flex items-center cursor-pointer" onclick="router('home')">
+                    <div class="flex-shrink-0 flex items-center gap-2 group">
+                        <div class="w-10 h-10 bg-karate-red rounded-full flex items-center justify-center text-white font-bold text-xl group-hover:bg-red-700 transition-colors">S</div>
+                        <div class="hidden md:block">
+                            <span class="block text-lg font-bold text-gray-900 leading-none">Satokai</span>
+                            <span class="block text-xs font-semibold text-karate-red leading-none">Shito-Ryu</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex items-center space-x-4">
+                    <div class="relative">
+                        <input type="text" id="desktop-search" placeholder="Search videos..." 
+                               class="pl-10 pr-4 py-1.5 border border-gray-300 rounded-full text-sm focus:outline-none focus:ring-2 focus:ring-karate-red w-48 transition-all focus:w-64"
+                               onkeyup="handleSearch(this.value)">
+                        <i data-lucide="search" class="absolute left-3 top-2 text-gray-400 w-4 h-4"></i>
+                    </div>
+                    
+                    <button onclick="router('basics')" class="nav-link px-3 py-2 rounded-md text-sm font-medium flex items-center gap-1.5 text-gray-700 hover:bg-gray-100"><i data-lucide="shield" class="w-4 h-4"></i> Basics</button>
+                    <button onclick="router('katas')" class="nav-link px-3 py-2 rounded-md text-sm font-medium flex items-center gap-1.5 text-gray-700 hover:bg-gray-100"><i data-lucide="video" class="w-4 h-4"></i> Katas</button>
+                    <button onclick="router('kumite')" class="nav-link px-3 py-2 rounded-md text-sm font-medium flex items-center gap-1.5 text-gray-700 hover:bg-gray-100"><i data-lucide="award" class="w-4 h-4"></i> Kumite</button>
+                    <button onclick="router('terminology')" class="nav-link px-3 py-2 rounded-md text-sm font-medium flex items-center gap-1.5 text-gray-700 hover:bg-gray-100"><i data-lucide="book-open" class="w-4 h-4"></i> Terminology</button>
+                    <button onclick="router('downloads')" class="nav-link px-3 py-2 rounded-md text-sm font-medium flex items-center gap-1.5 text-gray-700 hover:bg-gray-100"><i data-lucide="download" class="w-4 h-4"></i> Downloads</button>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="flex items-center md:hidden gap-4">
+                    <button onclick="toggleMobileMenu()" class="text-gray-700 hover:text-karate-red">
+                        <i data-lucide="menu" class="w-6 h-6"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100 pb-4">
+            <div class="px-4 py-2">
+                 <input type="text" placeholder="Search..." class="w-full pl-4 pr-4 py-2 border border-gray-300 rounded-full text-sm mb-2" onkeyup="handleSearch(this.value)">
+            </div>
+            <button onclick="router('basics'); toggleMobileMenu()" class="block w-full text-left px-4 py-3 text-base font-medium text-gray-700 hover:bg-gray-100">Basics</button>
+            <button onclick="router('katas'); toggleMobileMenu()" class="block w-full text-left px-4 py-3 text-base font-medium text-gray-700 hover:bg-gray-100">Katas</button>
+            <button onclick="router('kumite'); toggleMobileMenu()" class="block w-full text-left px-4 py-3 text-base font-medium text-gray-700 hover:bg-gray-100">Kumite</button>
+            <button onclick="router('terminology'); toggleMobileMenu()" class="block w-full text-left px-4 py-3 text-base font-medium text-gray-700 hover:bg-gray-100">Terminology</button>
+            <button onclick="router('downloads'); toggleMobileMenu()" class="block w-full text-left px-4 py-3 text-base font-medium text-gray-700 hover:bg-gray-100">Downloads</button>
+        </div>
+    </nav>
+
+    <!-- MAIN CONTENT -->
+    <main id="app-content" class="flex-grow">
+        
+        <!-- HOME PAGE -->
+        <section id="home" class="page-section active">
+            <div class="bg-karate-black text-white py-20 relative overflow-hidden">
+                <div class="absolute inset-0 opacity-20 bg-[url('https://www.shitoryu.net/wp-content/uploads/2016/02/shitu-stance-4-sm.jpg')] bg-cover bg-center"></div>
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+                    <h1 class="text-4xl md:text-6xl font-extrabold tracking-tight mb-4">
+                        Shito-Ryu Karate <span class="text-karate-red">Portal</span>
+                    </h1>
+                    <p class="text-xl text-gray-300 max-w-2xl mx-auto mb-8">
+                        Access curriculum videos, katas, kumite drills, and terminology anytime, anywhere. 
+                        Organized for students of all levels.
+                    </p>
+                    <div class="flex justify-center gap-4">
+                        <button onclick="router('katas')" class="px-8 py-3 bg-karate-red text-white font-bold rounded-full hover:bg-red-700 transition transform hover:scale-105 shadow-lg">Start Training</button>
+                        <button onclick="router('downloads')" class="px-8 py-3 bg-transparent border-2 border-white text-white font-bold rounded-full hover:bg-white hover:text-black transition transform hover:scale-105">Resources</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+                <h2 class="text-3xl font-bold text-center mb-12 text-gray-800">Training Modules</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <!-- Basics Card -->
+                    <div onclick="router('basics')" class="group cursor-pointer bg-white p-6 rounded-xl shadow-md hover:shadow-xl transition-all border border-gray-100 hover:border-karate-red">
+                        <div class="w-14 h-14 bg-red-100 rounded-full flex items-center justify-center text-karate-red mb-4 group-hover:bg-karate-red group-hover:text-white transition-colors">
+                            <i data-lucide="shield" class="w-7 h-7"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2">Basic Techniques</h3>
+                        <p class="text-gray-600 text-sm">Master the fundamental blocks, punches, kicks, and stances.</p>
+                    </div>
+                    <!-- Kata Card -->
+                    <div onclick="router('katas')" class="group cursor-pointer bg-white p-6 rounded-xl shadow-md hover:shadow-xl transition-all border border-gray-100 hover:border-karate-red">
+                        <div class="w-14 h-14 bg-red-100 rounded-full flex items-center justify-center text-karate-red mb-4 group-hover:bg-karate-red group-hover:text-white transition-colors">
+                            <i data-lucide="video" class="w-7 h-7"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2">Kata Library</h3>
+                        <p class="text-gray-600 text-sm">Comprehensive video guide of Katas organized by belt level.</p>
+                    </div>
+                    <!-- Kumite Card -->
+                    <div onclick="router('kumite')" class="group cursor-pointer bg-white p-6 rounded-xl shadow-md hover:shadow-xl transition-all border border-gray-100 hover:border-karate-red">
+                        <div class="w-14 h-14 bg-red-100 rounded-full flex items-center justify-center text-karate-red mb-4 group-hover:bg-karate-red group-hover:text-white transition-colors">
+                            <i data-lucide="award" class="w-7 h-7"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2">Kumite Drills</h3>
+                        <p class="text-gray-600 text-sm">Step-by-step breakdown of basic kumite sequences.</p>
+                    </div>
+                    <!-- Terminology Card -->
+                    <div onclick="router('terminology')" class="group cursor-pointer bg-white p-6 rounded-xl shadow-md hover:shadow-xl transition-all border border-gray-100 hover:border-karate-red">
+                        <div class="w-14 h-14 bg-red-100 rounded-full flex items-center justify-center text-karate-red mb-4 group-hover:bg-karate-red group-hover:text-white transition-colors">
+                            <i data-lucide="book-open" class="w-7 h-7"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2">Terminology</h3>
+                        <p class="text-gray-600 text-sm">Essential Japanese terms, numbers, and commands.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- GENERIC GRID SECTION TEMPLATE (Used for Basics, Katas, Kumite, Search) -->
+        <section id="grid-page" class="page-section max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+            <h1 id="page-title" class="text-3xl font-bold text-gray-900 mb-2">Title</h1>
+            <p id="page-description" class="text-gray-600 mb-8">Description</p>
+            
+            <!-- Filters Container -->
+            <div id="filters-container" class="flex flex-wrap gap-2 mb-8 sticky top-20 z-40 bg-gray-50 py-2 -mx-2 px-2 shadow-sm rounded-lg border border-gray-100 hidden">
+                <!-- Filters injected via JS -->
+            </div>
+
+            <div id="video-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Content injected via JS -->
+            </div>
+        </section>
+
+        <!-- TERMINOLOGY PAGE -->
+        <section id="terminology" class="page-section max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+            <h1 class="text-3xl font-bold text-gray-900 mb-6">Karate Terminology</h1>
+            <div id="terminology-content" class="space-y-12"></div>
+        </section>
+
+        <!-- DOWNLOADS PAGE -->
+        <section id="downloads" class="page-section max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+            <h1 class="text-3xl font-bold text-gray-900 mb-6">Downloads & Resources</h1>
+            <div id="downloads-content" class="grid gap-6"></div>
+        </section>
+
+    </main>
+
+    <footer class="bg-gray-900 text-gray-400 py-8 mt-auto">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <p>&copy; <span id="year"></span> Shito-Ryu Portal. Organized for practitioner reference.</p>
+            <p className="text-sm mt-2">Videos courtesy of <a href="https://www.youtube.com/@AnthonyAu-c2e" target="_blank" class="text-karate-red hover:underline">@AnthonyAu-c2e</a></p>
+        </div>
+    </footer>
+
+    <!-- DATA & LOGIC -->
+    <script>
+        // --- DATA ---
+        const videos = [
+            // STANCES
+            { id: "gndORk_8HWY", title: "Stance: Heisoku Dachi", category: "Basics", belt: "White Belt", description: "Informal Attention Stance. Feet together, toes pointing forward." },
+            { id: "gndORk_8HWY", title: "Stance: Musubi Dachi", category: "Basics", belt: "White Belt", description: "Open Attention Stance. Heels together, toes open at 45 degrees." },
+            { id: "gndORk_8HWY", title: "Stance: Heiko Dachi", category: "Basics", belt: "White Belt", description: "Parallel Stance. Feet shoulder width apart, toes pointing forward." },
+            { id: "gndORk_8HWY", title: "Stance: Hachiji Dachi", category: "Basics", belt: "White Belt", description: "Open Leg Stance. Feet shoulder width, toes pointing out." },
+            { id: "gndORk_8HWY", title: "Stance: Shiko Dachi", category: "Basics", belt: "White Belt", description: "Square Stance. Wide stance, knees bent, back straight. Essential for leg strength." },
+            { id: "gndORk_8HWY", title: "Stance: Zenkutsu Dachi", category: "Basics", belt: "White Belt", description: "Front/Forward Stance. Long stance, front knee bent, back leg straight." },
+            { id: "gndORk_8HWY", title: "Stance: Neko Ashi Dachi", category: "Basics", belt: "White Belt", description: "Cat Foot Stance. Most weight on back leg, front foot resting lightly." },
+            { id: "gndORk_8HWY", title: "Stance: Kokutsu Dachi", category: "Basics", belt: "White Belt", description: "Back Stance. Similar to Zenkutsu but weight shifted back." },
+            { id: "gndORk_8HWY", title: "Stance: Moto Dachi", category: "Basics", belt: "White Belt", description: "High Forward Stance. Shorter and higher than Zenkutsu." },
+            { id: "gndORk_8HWY", title: "Stance: Sanchin Dachi", category: "Basics", belt: "White Belt", description: "Hourglass Stance. Tension stance with toes turned inward." },
+            
+            // ATTACKS
+            { id: "gndORk_8HWY", title: "Seiken Tsuki", category: "Basics", belt: "White Belt", description: "Forefist Punch using the first two knuckles." },
+            { id: "gndORk_8HWY", title: "Oi Tsuki", category: "Basics", belt: "White Belt", description: "Lunge Punch. Stepping forward and punching with the same side hand." },
+            { id: "gndORk_8HWY", title: "Gyaku Tsuki", category: "Basics", belt: "White Belt", description: "Reverse Punch. Punching with the hand opposite to the forward leg." },
+            { id: "gndORk_8HWY", title: "Kizami Tsuki", category: "Basics", belt: "Yellow Belt", description: "Jab punch used for speed and range finding." },
+            { id: "gndORk_8HWY", title: "Ura Tsuki", category: "Basics", belt: "Yellow Belt", description: "Inverted/Upper Punch. Palm facing up, often close range." },
+            { id: "gndORk_8HWY", title: "Shuto Uchi", category: "Basics", belt: "Yellow Belt", description: "Knife Hand Strike. Striking with the outer edge of the hand." },
+            { id: "gndORk_8HWY", title: "Hiji Ate", category: "Basics", belt: "Green Belt", description: "Elbow Strike (Empi). Using the point of the elbow." },
+
+            // BLOCKS
+            { id: "gndORk_8HWY", title: "Gedan Barai", category: "Basics", belt: "White Belt", description: "Downward Block/Sweep. Protecting the lower body." },
+            { id: "gndORk_8HWY", title: "Yoko Uke", category: "Basics", belt: "White Belt", description: "Inside Block. Blocking from inside out to protect the mid-section." },
+            { id: "gndORk_8HWY", title: "Yoko Uchi", category: "Basics", belt: "White Belt", description: "Outside Block. Blocking from outside in." },
+            { id: "gndORk_8HWY", title: "Age Uke", category: "Basics", belt: "White Belt", description: "Rising Block. Protecting the head/face area." },
+            { id: "XJbWw_hQ5ko", title: "Shuto Uke", category: "Basics", belt: "Yellow Belt", description: "Knife Hand Block. Classic guarding stance block." },
+
+            // KICKS
+            { id: "gndORk_8HWY", title: "Mae Geri", category: "Basics", belt: "White Belt", description: "Front Kick. Snap kick using the ball of the foot (Chusoku)." },
+            { id: "gndORk_8HWY", title: "Mawashi Geri", category: "Basics", belt: "Yellow Belt", description: "Roundhouse Kick. Striking with the instep or ball of the foot." },
+            { id: "gndORk_8HWY", title: "Yoko Geri", category: "Basics", belt: "Yellow Belt", description: "Side Kick. Can be performed as snap (Keage) or thrust (Kekomi)." },
+            { id: "gndORk_8HWY", title: "Fumikomi Geri", category: "Basics", belt: "Green Belt", description: "Stomp Kick. Targeting the opponent's knee or foot." },
+            { id: "gndORk_8HWY", title: "Ushiro Geri", category: "Basics", belt: "Green Belt", description: "Back Kick. Thrusting kick to the rear." },
+
+            // KATAS
+            { id: "O9YlRkv8Su8", title: "Kata 1: Kihon Kata Ichi", category: "Kata", belt: "White Belt" },
+            { id: "yLjfk3a2sLs", title: "Kata 2: Kihon Kata Ni", category: "Kata", belt: "White Belt" },
+            { id: "mh-pBNlKcHY", title: "Kata 3: Kihon Kata San", category: "Kata", belt: "White Belt" },
+            { id: "eW_jHGFLAAI", title: "Kata 4: Kihon Kata Yon", category: "Kata", belt: "Yellow Belt" },
+            { id: "aCZKFiDtBKY", title: "Kata 5: Kihon Kata Go", category: "Kata", belt: "Yellow Belt" },
+            { id: "NVG-6aqQcYA", title: "Kata 6: Kihon Kata Roku", category: "Kata", belt: "Yellow Belt" },
+            { id: "teMbijIvnig", title: "Kata 7: Kihon Kata Shichi", category: "Kata", belt: "Orange Belt" },
+            { id: "Sq-u8ZMikS4", title: "Kata 8: Kihon Kata Hachi", category: "Kata", belt: "Orange Belt" },
+            { id: "NY6tE4Et3vw", title: "Kata 9: Kihon Kata Ku", category: "Kata", belt: "Orange Belt" },
+            { id: "rLTZCKjK2v8", title: "Heian Nidan", category: "Kata", belt: "Orange Belt" },
+            { id: "3l-jrrtoGVs", title: "Kata 10", category: "Kata", belt: "Green Belt" },
+            { id: "vVKUAVr2hC4", title: "Kata 11", category: "Kata", belt: "Green Belt" },
+            { id: "8e3XUs_L-C4", title: "Kata 12", category: "Kata", belt: "Green Belt" },
+            { id: "1q4n8OYNO3o", title: "Heian Sandan", category: "Kata", belt: "Green Belt" },
+            { id: "wD--FQkCxG0", title: "Kata 13", category: "Kata", belt: "Blue Belt" },
+            { id: "W7LWrhb0Nu0", title: "Kata 14", category: "Kata", belt: "Blue Belt" },
+            { id: "XyM1Xa_FaU8", title: "Kata 15", category: "Kata", belt: "Blue Belt" },
+            { id: "T-XErnU6muQ", title: "Heian Shodan", category: "Kata", belt: "Blue Belt" },
+            { id: "upg5kxMeCD8", title: "Heian Yondan", category: "Kata", belt: "Brown Belt" },
+            { id: "Q3k0QAFbciA", title: "Heian Godan", category: "Kata", belt: "Brown Belt" },
+            { id: "4QfcGbexHI4", title: "Jitte", category: "Kata", belt: "Brown Belt" },
+            { id: "7M6pzVCSsC4", title: "Jion", category: "Kata", belt: "Brown Belt" },
+            { id: "HFnh5r3onlc", title: "Jiin", category: "Kata", belt: "Brown Belt" },
+
+            // KUMITE
+            { id: "cX-oN7itZiA", title: "Basic Kumite 1 - 3", category: "Kumite", belt: "White Belt" },
+            { id: "KXfH1Ib0P6Y", title: "Basic Kumite 4 - 6", category: "Kumite", belt: "Yellow Belt" },
+            { id: "R9FXvwIMF9I", title: "Basic Kumite 7 - 9", category: "Kumite", belt: "Orange Belt" },
+            { id: "G6trDy2AgJw", title: "Basic Kumite 10 - 12", category: "Kumite", belt: "Green Belt" },
+            { id: "Emn-rnCTO2Y", title: "Basic Kumite 13 - 15", category: "Kumite", belt: "Blue Belt" },
+            { id: "23YJB55rj0w", title: "Basic Kumite 16 - 17", category: "Kumite", belt: "Brown Belt" },
+            { id: "gJIQ0r-BDXI", title: "Basic Kumite 18 - 19", category: "Kumite", belt: "Brown Belt" },
+            { id: "5eL0HGgWVZw", title: "Basic Kumite 20", category: "Kumite", belt: "Brown Belt" }
+        ];
+
+        const terminology = [
+            { term: "Ichi", translation: "One", category: "Numbers" },
+            { term: "Ni", translation: "Two", category: "Numbers" },
+            { term: "San", translation: "Three", category: "Numbers" },
+            { term: "Shi", translation: "Four", category: "Numbers" },
+            { term: "Go", translation: "Five", category: "Numbers" },
+            { term: "Roku", translation: "Six", category: "Numbers" },
+            { term: "Shichi", translation: "Seven", category: "Numbers" },
+            { term: "Hachi", translation: "Eight", category: "Numbers" },
+            { term: "Ku", translation: "Nine", category: "Numbers" },
+            { term: "Ju", translation: "Ten", category: "Numbers" },
+            { term: "Karate", translation: "Empty Hand", category: "General" },
+            { term: "Dojo", translation: "Training Hall", category: "General" },
+            { term: "Sensei", translation: "Teacher/Instructor", category: "General" },
+            { term: "Gi", translation: "Uniform", category: "General" },
+            { term: "Obi", translation: "Belt", category: "General" },
+            { term: "Rei", translation: "Bow", category: "General" },
+            { term: "Yame", translation: "Stop", category: "General" },
+            { term: "Hajime", translation: "Begin", category: "General" },
+            { term: "Uke", translation: "Block", category: "Techniques" },
+            { term: "Tsuki", translation: "Punch", category: "Techniques" },
+            { term: "Geri", translation: "Kick", category: "Techniques" },
+            { term: "Jodan", translation: "Upper Level (Head)", category: "Techniques" },
+            { term: "Chudan", translation: "Middle Level (Body)", category: "Techniques" },
+            { term: "Gedan", translation: "Lower Level", category: "Techniques" },
+            { term: "Zenkutsu Dachi", translation: "Forward Stance", category: "Stances" },
+            { term: "Shiko Dachi", translation: "Horse/Sumo Stance", category: "Stances" },
+            { term: "Neko Ashi Dachi", translation: "Cat Stance", category: "Stances" },
+            { term: "Kokutsu Dachi", translation: "Back Stance", category: "Stances" },
+            { term: "Sanchin Dachi", translation: "Hourglass Stance", category: "Stances" },
+            { term: "Heiko Dachi", translation: "Parallel Stance", category: "Stances" },
+            { term: "Musubi Dachi", translation: "Attention Stance (Heels together)", category: "Stances" }
+        ];
+
+        const downloads = [
+            { title: "WKF Competition Rules", description: "Official World Karate Federation competition rules and regulations.", url: "https://www.wkf.net/pdf/WKF_Competition%20Rules_2024.pdf", date: "2024" },
+            { title: "Sato-Ha Kata List", description: "Complete list of Katas for the Sato-Ha style.", url: "https://www.shitoryu.net/wp-content/uploads/2018/07/SATO-HA-SHITO-RYU-KATA-LIST-Revised-July-2018.pdf", date: "July 2018" },
+            { title: "Dan Test Guidelines", description: "Requirements for Black Belt grading.", url: "https://www.shitoryu.net/wp-content/uploads/2022/03/SATO-HA-RICK-V.4-DAN-TEST-GUIDELINES-Revision-Mar-3-2022-1-6.pdf", date: "March 2022" },
+            { title: "Colour Belt Requirements", description: "Curriculum for kyu grades.", url: "http://shitoryu.net/wp-content/uploads/2019/01/Sato-Ha-Colour-Belt-Test-Requirements.pdf", date: "Jan 2019" }
+        ];
+
+        // --- APP LOGIC ---
+
+        function toggleMobileMenu() {
+            document.getElementById('mobile-menu').classList.toggle('hidden');
+        }
+
+        // Generate HTML for a video card
+        function createVideoCard(video) {
+            return `
+                <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition-shadow duration-300">
+                    <div class="relative aspect-video bg-gray-900 group">
+                         <iframe
+                            class="w-full h-full"
+                            src="https://www.youtube.com/embed/${video.id}"
+                            title="${video.title}"
+                            frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen
+                            loading="lazy"
+                        ></iframe>
+                    </div>
+                    <div class="p-4">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-lg font-bold text-gray-800 leading-tight">${video.title}</h3>
+                            ${video.belt ? `<span class="text-xs font-semibold px-2 py-1 rounded bg-gray-100 text-gray-600 whitespace-nowrap ml-2">${video.belt}</span>` : ''}
+                        </div>
+                        ${video.description ? `<p class="text-sm text-gray-600 mt-2 line-clamp-2">${video.description}</p>` : ''}
+                    </div>
+                </div>
+            `;
+        }
+
+        // Render generic grid pages (Basics, Katas, Kumite, Search)
+        function renderGridPage(category, title, description, filterBelt = 'All') {
+            const grid = document.getElementById('video-grid');
+            const pageTitle = document.getElementById('page-title');
+            const pageDesc = document.getElementById('page-description');
+            const filtersContainer = document.getElementById('filters-container');
+
+            pageTitle.textContent = title;
+            pageDesc.textContent = description;
+            
+            // Logic for Katas Filters
+            if (category === 'Kata') {
+                filtersContainer.classList.remove('hidden');
+                const belts = ['All', 'White Belt', 'Yellow Belt', 'Orange Belt', 'Green Belt', 'Blue Belt', 'Brown Belt', 'Black Belt'];
+                
+                filtersContainer.innerHTML = belts.map(belt => `
+                    <button onclick="renderGridPage('${category}', '${title}', '${description}', '${belt}')" 
+                        class="px-4 py-2 rounded-full text-sm font-semibold transition-colors border ${filterBelt === belt ? 'bg-karate-red text-white border-karate-red' : 'bg-white text-gray-700 hover:bg-gray-100 border-gray-200'}">
+                        ${belt}
+                    </button>
+                `).join('');
+            } else {
+                filtersContainer.classList.add('hidden');
+            }
+
+            // Filter Videos
+            let filtered = [];
+            if (category === 'Search') {
+                const q = filterBelt.toLowerCase(); // reusing filterBelt param as search query
+                filtered = videos.filter(v => 
+                    v.title.toLowerCase().includes(q) || 
+                    v.category.toLowerCase().includes(q) || 
+                    (v.belt && v.belt.toLowerCase().includes(q))
+                );
+                pageTitle.textContent = `Search Results for "${filterBelt}"`;
+                pageDesc.textContent = "";
+            } else {
+                filtered = videos.filter(v => v.category === category);
+                if (filterBelt !== 'All' && category === 'Kata') {
+                    filtered = filtered.filter(v => v.belt === filterBelt);
+                }
+            }
+
+            // Render
+            if (filtered.length > 0) {
+                grid.innerHTML = filtered.map(createVideoCard).join('');
+            } else {
+                grid.innerHTML = `<div class="col-span-full text-center py-20 bg-white rounded-lg border border-dashed border-gray-300 text-gray-500">No videos found.</div>`;
+            }
+        }
+
+        function renderTerminology() {
+            const container = document.getElementById('terminology-content');
+            const categories = {};
+            terminology.forEach(item => {
+                if (!categories[item.category]) categories[item.category] = [];
+                categories[item.category].push(item);
+            });
+
+            container.innerHTML = Object.keys(categories).map(cat => `
+                <div class="bg-white rounded-lg shadow-sm overflow-hidden border border-gray-200">
+                    <div class="bg-gray-50 px-6 py-4 border-b border-gray-200">
+                        <h2 class="text-xl font-bold text-karate-red">${cat}</h2>
+                    </div>
+                    <div class="divide-y divide-gray-100">
+                        ${categories[cat].map(item => `
+                            <div class="grid grid-cols-2 px-6 py-4 hover:bg-gray-50 transition-colors">
+                                <div class="font-bold text-gray-800">${item.term}</div>
+                                <div class="text-gray-600">${item.translation}</div>
+                            </div>
+                        `).join('')}
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function renderDownloads() {
+            const container = document.getElementById('downloads-content');
+            container.innerHTML = downloads.map(item => `
+                <div class="bg-white p-6 rounded-lg shadow-sm border border-gray-200 flex flex-col md:flex-row md:items-center justify-between hover:border-karate-red transition-all">
+                    <div class="mb-4 md:mb-0">
+                        <div class="flex items-center gap-3 mb-1">
+                            <i data-lucide="file-text" class="text-karate-red"></i>
+                            <h3 class="text-lg font-bold text-gray-900">${item.title}</h3>
+                        </div>
+                        <p class="text-gray-600 text-sm ml-9">${item.description}</p>
+                        <p class="text-xs text-gray-400 ml-9 mt-1">Updated: ${item.date}</p>
+                    </div>
+                    <a href="${item.url}" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center px-5 py-2.5 bg-gray-100 text-gray-800 font-semibold rounded-lg hover:bg-karate-red hover:text-white transition-colors gap-2">
+                        Open File <i data-lucide="external-link" class="w-4 h-4"></i>
+                    </a>
+                </div>
+            `).join('');
+        }
+
+        // Router
+        function router(route) {
+            // Hide all sections
+            document.querySelectorAll('.page-section').forEach(el => el.classList.remove('active'));
+            window.scrollTo(0,0);
+            
+            // Show specific section
+            if (route === 'home') {
+                document.getElementById('home').classList.add('active');
+            } else if (route === 'terminology') {
+                renderTerminology();
+                document.getElementById('terminology').classList.add('active');
+            } else if (route === 'downloads') {
+                renderDownloads();
+                document.getElementById('downloads').classList.add('active');
+            } else {
+                // Generic Grid Handling
+                document.getElementById('grid-page').classList.add('active');
+                if (route === 'basics') {
+                    renderGridPage('Basics', 'Basic Techniques', 'Fundamental blocks, strikes, kicks, and stances.');
+                } else if (route === 'katas') {
+                    renderGridPage('Kata', 'Kata Library', 'Select your belt level to view required forms.', 'All');
+                } else if (route === 'kumite') {
+                    renderGridPage('Kumite', 'Basic Kumite', 'Pre-arranged sparring drills for distance and timing.');
+                }
+            }
+            // Update icons
+            lucide.createIcons();
+        }
+
+        function handleSearch(query) {
+            if (!query) return;
+            // Hide home, show grid
+            document.querySelectorAll('.page-section').forEach(el => el.classList.remove('active'));
+            document.getElementById('grid-page').classList.add('active');
+            renderGridPage('Search', '', '', query);
+            lucide.createIcons();
+        }
+
+        // Initialize
+        document.getElementById('year').textContent = new Date().getFullYear();
+        lucide.createIcons();
+
+    </script>
+</body>
 </html>

@@ -1,101 +1,204 @@
 import { BeltLevel, VideoCategory, VideoItem, TerminologyItem, DownloadItem } from './types.ts';
 
-// DATA EXTRACTION NOTE: 
-// The YouTube IDs below are extracted from the source request where available.
-// Others are placeholders or inferred from standard Shito-Ryu curriculum on the channel.
+// Note: Many IDs are set to a generic Shito-Ryu basics video ("gndORk_8HWY") 
+// as placeholders. You can replace these with specific clips later.
 
 export const videos: VideoItem[] = [
-  // --- BASICS (Kihon) ---
-  // Stances (Tachikata)
+  // --- BASICS: STANCES (Tachikata) ---
   {
-    id: "gndORk_8HWY", // Placeholder
-    title: "Tachikata (Stances) Overview",
+    id: "gndORk_8HWY",
+    title: "Stance: Heisoku Dachi",
     category: VideoCategory.Basics,
     belt: BeltLevel.White,
-    description: "Overview of fundamental stances: Heisoku, Musubi, Heiko, Hachiji, Uchi Hachiji, Shiko, Moto, Zenkutsu, Neko Ashi, Sanchin, Kosa, Kokutsu, Renoji."
+    description: "Informal Attention Stance. Feet together, toes pointing forward."
   },
   {
     id: "gndORk_8HWY",
-    title: "Zenkutsu Dachi (Forward Stance)",
+    title: "Stance: Musubi Dachi",
     category: VideoCategory.Basics,
     belt: BeltLevel.White,
-    description: "Detailed breakdown of the Forward Stance, focusing on weight distribution and hip alignment."
+    description: "Open Attention Stance. Heels together, toes open at 45 degrees."
   },
   {
     id: "gndORk_8HWY",
-    title: "Shiko Dachi (Square Stance)",
+    title: "Stance: Heiko Dachi",
     category: VideoCategory.Basics,
     belt: BeltLevel.White,
-    description: "The Sumo/Square stance essential for Shito-Ryu stability and leg strength."
+    description: "Parallel Stance. Feet shoulder width apart, toes pointing forward."
   },
   {
     id: "gndORk_8HWY",
-    title: "Neko Ashi Dachi (Cat Stance)",
+    title: "Stance: Hachiji Dachi",
     category: VideoCategory.Basics,
     belt: BeltLevel.White,
-    description: "Cat Foot Stance focusing on rear-leg weight distribution and agility."
+    description: "Open Leg Stance. Feet shoulder width, toes pointing out."
   },
-  
-  // Blocks (Uke Waza)
   {
     id: "gndORk_8HWY",
-    title: "Uke Waza: Gedan Barai & Yoko Uke",
+    title: "Stance: Shiko Dachi",
     category: VideoCategory.Basics,
     belt: BeltLevel.White,
-    description: "Downward Block (Gedan Barai) and Inside Block (Yoko Uke)."
+    description: "Square Stance. Wide stance, knees bent, back straight. Essential for leg strength."
   },
   {
-    id: "XJbWw_hQ5ko", 
-    title: "Shuto Uke (Knife Hand Block)",
+    id: "gndORk_8HWY",
+    title: "Stance: Zenkutsu Dachi",
+    category: VideoCategory.Basics,
+    belt: BeltLevel.White,
+    description: "Front/Forward Stance. Long stance, front knee bent, back leg straight."
+  },
+  {
+    id: "gndORk_8HWY",
+    title: "Stance: Neko Ashi Dachi",
+    category: VideoCategory.Basics,
+    belt: BeltLevel.White,
+    description: "Cat Foot Stance. Most weight on back leg, front foot resting lightly."
+  },
+  {
+    id: "gndORk_8HWY",
+    title: "Stance: Kokutsu Dachi",
+    category: VideoCategory.Basics,
+    belt: BeltLevel.White,
+    description: "Back Stance. Similar to Zenkutsu but weight shifted back."
+  },
+  {
+    id: "gndORk_8HWY",
+    title: "Stance: Moto Dachi",
+    category: VideoCategory.Basics,
+    belt: BeltLevel.White,
+    description: "High Forward Stance. Shorter and higher than Zenkutsu."
+  },
+  {
+    id: "gndORk_8HWY",
+    title: "Stance: Sanchin Dachi",
+    category: VideoCategory.Basics,
+    belt: BeltLevel.White,
+    description: "Hourglass Stance. Tension stance with toes turned inward."
+  },
+
+  // --- BASICS: ATTACKS (Tsuki & Uchi Waza) ---
+  {
+    id: "gndORk_8HWY",
+    title: "Seiken Tsuki",
+    category: VideoCategory.Basics,
+    belt: BeltLevel.White,
+    description: "Forefist Punch using the first two knuckles."
+  },
+  {
+    id: "gndORk_8HWY",
+    title: "Oi Tsuki",
+    category: VideoCategory.Basics,
+    belt: BeltLevel.White,
+    description: "Lunge Punch. Stepping forward and punching with the same side hand."
+  },
+  {
+    id: "gndORk_8HWY",
+    title: "Gyaku Tsuki",
+    category: VideoCategory.Basics,
+    belt: BeltLevel.White,
+    description: "Reverse Punch. Punching with the hand opposite to the forward leg."
+  },
+  {
+    id: "gndORk_8HWY",
+    title: "Kizami Tsuki",
     category: VideoCategory.Basics,
     belt: BeltLevel.Yellow,
-    description: "Proper form for knife hand guarding block in Kokutsu Dachi or Neko Ashi Dachi."
+    description: "Jab punch used for speed and range finding."
   },
   {
     id: "gndORk_8HWY",
-    title: "Advanced Blocks: Kake Uke & Mawashi Uke",
+    title: "Ura Tsuki",
+    category: VideoCategory.Basics,
+    belt: BeltLevel.Yellow,
+    description: "Inverted/Upper Punch. Palm facing up, often close range."
+  },
+  {
+    id: "gndORk_8HWY",
+    title: "Shuto Uchi",
+    category: VideoCategory.Basics,
+    belt: BeltLevel.Yellow,
+    description: "Knife Hand Strike. Striking with the outer edge of the hand."
+  },
+  {
+    id: "gndORk_8HWY",
+    title: "Hiji Ate",
     category: VideoCategory.Basics,
     belt: BeltLevel.Green,
-    description: "Hook block (Kake Uke) and Roundhouse block (Mawashi Uke) techniques."
+    description: "Elbow Strike (Empi). Using the point of the elbow."
   },
 
-  // Strikes (Tsuki Waza)
+  // --- BASICS: BLOCKS (Uke Waza) ---
   {
     id: "gndORk_8HWY",
-    title: "Tsuki Waza: Seiken, Oi Tsuki, Gyaku Tsuki",
+    title: "Gedan Barai",
     category: VideoCategory.Basics,
     belt: BeltLevel.White,
-    description: "Forefist punch, Lunge punch, and Reverse punch mechanics."
+    description: "Downward Block/Sweep. Protecting the lower body."
   },
   {
     id: "gndORk_8HWY",
-    title: "Striking Variations: Ura, Kagi, & Tate Tsuki",
+    title: "Yoko Uke",
+    category: VideoCategory.Basics,
+    belt: BeltLevel.White,
+    description: "Inside Block. Blocking from inside out to protect the mid-section."
+  },
+  {
+    id: "gndORk_8HWY",
+    title: "Yoko Uchi",
+    category: VideoCategory.Basics,
+    belt: BeltLevel.White,
+    description: "Outside Block. Blocking from outside in."
+  },
+  {
+    id: "gndORk_8HWY",
+    title: "Age Uke",
+    category: VideoCategory.Basics,
+    belt: BeltLevel.White,
+    description: "Rising Block. Protecting the head/face area."
+  },
+  {
+    id: "XJbWw_hQ5ko",
+    title: "Shuto Uke",
     category: VideoCategory.Basics,
     belt: BeltLevel.Yellow,
-    description: "Inverted punch (Ura), Hook punch (Kagi), and Vertical punch (Tate)."
+    description: "Knife Hand Block. Classic guarding stance block."
   },
 
-  // Kicks (Geri Waza)
+  // --- BASICS: KICKS (Geri Waza) ---
   {
     id: "gndORk_8HWY",
-    title: "Geri Waza: Mae Geri (Front Kick)",
+    title: "Mae Geri",
     category: VideoCategory.Basics,
     belt: BeltLevel.White,
-    description: "Front snap kick fundamentals and ball-of-foot striking."
+    description: "Front Kick. Snap kick using the ball of the foot (Chusoku)."
   },
   {
     id: "gndORk_8HWY",
-    title: "Geri Waza: Mawashi Geri (Roundhouse Kick)",
-    category: VideoCategory.Basics,
-    belt: BeltLevel.White,
-    description: "Roundhouse kick hip rotation and impact."
-  },
-  {
-    id: "gndORk_8HWY",
-    title: "Geri Waza: Yoko Geri (Side Kick)",
+    title: "Mawashi Geri",
     category: VideoCategory.Basics,
     belt: BeltLevel.Yellow,
-    description: "Side thrust kick (Kekomi) and Side snap kick (Keage)."
+    description: "Roundhouse Kick. Striking with the instep or ball of the foot."
+  },
+  {
+    id: "gndORk_8HWY",
+    title: "Yoko Geri",
+    category: VideoCategory.Basics,
+    belt: BeltLevel.Yellow,
+    description: "Side Kick. Can be performed as snap (Keage) or thrust (Kekomi)."
+  },
+  {
+    id: "gndORk_8HWY",
+    title: "Fumikomi Geri",
+    category: VideoCategory.Basics,
+    belt: BeltLevel.Green,
+    description: "Stomp Kick. Targeting the opponent's knee or foot."
+  },
+  {
+    id: "gndORk_8HWY",
+    title: "Ushiro Geri",
+    category: VideoCategory.Basics,
+    belt: BeltLevel.Green,
+    description: "Back Kick. Thrusting kick to the rear."
   },
 
   // --- KATAS ---
