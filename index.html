@@ -30,6 +30,10 @@
         .page-section { display: none; } /* Hidden by default */
         .page-section.active { display: block; animation: fadeIn 0.3s ease-in-out; }
         @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        
+        /* Split view utilities */
+        .clip-triangle-tl { clip-path: polygon(0 0, 100% 0, 0 100%); }
+        .clip-triangle-br { clip-path: polygon(100% 0, 100% 100%, 0 100%); }
     </style>
 <script type="importmap">
 {
@@ -290,7 +294,7 @@
     <!-- DATA & LOGIC -->
     <script>
         // --- DATA ---
-        // Same data as TS file, but ensuring empty IDs are preserved
+        // Updated data reflecting restored Heian naming and secondary IDs
         const videos = [
             // BASICS ROUTINE
             {
@@ -347,6 +351,7 @@
             { id: "", title: "Kake Uke", category: "Advanced", belt: "Brown Belt", description: "Hooking Block. Using the wrist to hook and control an incoming strike." },
 
             // KATAS
+            // White Belt
             { id: "O9YlRkv8Su8", title: "Kata 1: Kihon Kata Ichi", category: "Kata", belt: "White Belt" },
             { id: "yLjfk3a2sLs", title: "Kata 2: Kihon Kata Ni", category: "Kata", belt: "White Belt" },
             { id: "mh-pBNlKcHY", title: "Kata 3: Kihon Kata San", category: "Kata", belt: "White Belt" },
@@ -355,25 +360,43 @@
             { id: "eW_jHGFLAAI", title: "Kata 4: Kihon Kata Yon", category: "Kata", belt: "Yellow Belt" },
             { id: "aCZKFiDtBKY", title: "Kata 5: Kihon Kata Go", category: "Kata", belt: "Yellow Belt" },
             { id: "NVG-6aqQcYA", title: "Kata 6: Kihon Kata Roku", category: "Kata", belt: "Yellow Belt" },
-            { id: "rLTZCKjK2v8", title: "Heian Nidan", category: "Kata", belt: "Yellow Belt" },
+            { 
+              id: "https://www.youtube.com/watch?v=VlHLIrzDCwk&list=PLQJ34bEd6-BHr-3QzEB0vFWvCmLKJCBtc&index=1", 
+              secondaryId: "rLTZCKjK2v8", 
+              title: "Heian Nidan", 
+              category: "Kata", 
+              belt: "Yellow Belt" 
+            },
 
             // Orange Belt
             { id: "teMbijIvnig", title: "Kata 7: Kihon Kata Shichi", category: "Kata", belt: "Orange Belt" },
             { id: "Sq-u8ZMikS4", title: "Kata 8: Kihon Kata Hachi", category: "Kata", belt: "Orange Belt" },
             { id: "NY6tE4Et3vw", title: "Kata 9: Kihon Kata Ku", category: "Kata", belt: "Orange Belt" },
-            { id: "1q4n8OYNO3o", title: "Heian Sandan", category: "Kata", belt: "Orange Belt" },
+            { 
+              id: "https://www.youtube.com/watch?v=wGHV1X-9j_k&list=PLQJ34bEd6-BHr-3QzEB0vFWvCmLKJCBtc&index=2", 
+              secondaryId: "1q4n8OYNO3o", 
+              title: "Heian Sandan", 
+              category: "Kata", 
+              belt: "Orange Belt" 
+            },
 
-            // Green Belt - Pinan Shodan
+            // Green Belt - Heian Shodan
             { id: "3l-jrrtoGVs", title: "Kata 10", category: "Kata", belt: "Green Belt" },
             { id: "vVKUAVr2hC4", title: "Kata 11", category: "Kata", belt: "Green Belt" },
             { id: "8e3XUs_L-C4", title: "Kata 12", category: "Kata", belt: "Green Belt" },
             { id: "T-XErnU6muQ", title: "Heian Shodan", category: "Kata", belt: "Green Belt" },
 
-            // Blue Belt - Pinan Yondan
+            // Blue Belt - Heian Yondan
             { id: "wD--FQkCxG0", title: "Kata 13", category: "Kata", belt: "Blue Belt" },
             { id: "W7LWrhb0Nu0", title: "Kata 14", category: "Kata", belt: "Blue Belt" },
             { id: "XyM1Xa_FaU8", title: "Kata 15", category: "Kata", belt: "Blue Belt" },
-            { id: "upg5kxMeCD8", title: "Heian Yondan", category: "Kata", belt: "Blue Belt" },
+            { 
+              id: "https://www.youtube.com/watch?v=7Uv6QC0ge5M&list=PLQJ34bEd6-BHr-3QzEB0vFWvCmLKJCBtc&index=3", 
+              secondaryId: "upg5kxMeCD8", 
+              title: "Heian Yondan", 
+              category: "Kata", 
+              belt: "Blue Belt" 
+            },
 
             // Brown Belt
             { id: "F0-l1Z6Imug", title: "Kata 16", category: "Kata", belt: "Brown Belt" },
@@ -381,7 +404,14 @@
             { id: "-rj88UMeD7Q", title: "Kata 18", category: "Kata", belt: "Brown Belt" },
             { id: "PVOw2cksEHs", title: "Kata 19", category: "Kata", belt: "Brown Belt" },
             { id: "TpBHNFXsK5E", title: "Kata 20", category: "Kata", belt: "Brown Belt" },
-            { id: "Q3k0QAFbciA", title: "Heian Godan", category: "Kata", belt: "Brown Belt" },
+            { 
+              id: "https://www.youtube.com/watch?v=dted7lBq9Tw&list=PLQJ34bEd6-BHr-3QzEB0vFWvCmLKJCBtc&index=4", 
+              secondaryId: "Q3k0QAFbciA", 
+              title: "Heian Godan", 
+              category: "Kata", 
+              belt: "Brown Belt" 
+            },
+            { id: "https://www.youtube.com/watch?v=jpzhI_gNFHw&list=PLQJ34bEd6-BHr-3QzEB0vFWvCmLKJCBtc&index=5", title: "Naihanchi Shodan", category: "Kata", belt: "Brown Belt" },
             { id: "4QfcGbexHI4", title: "Jitte", category: "Kata", belt: "Brown Belt" },
             { id: "7M6pzVCSsC4", title: "Jion", category: "Kata", belt: "Brown Belt" },
             { id: "HFnh5r3onlc", title: "Jiin", category: "Kata", belt: "Brown Belt" },
@@ -390,20 +420,19 @@
             { id: "GceAHME0jUk", title: "Black Belt Kata Demonstration", category: "Kata", belt: "Black Belt", description: "Compilation of various black belt katas." },
             { id: "aUrgF39TSAM", title: "Tensho", category: "Kata", belt: "Black Belt" },
             { id: "CGVhW1pR5B0", title: "Sanchin", category: "Kata", belt: "Black Belt" },
+            
             // Major Shito-ryu Black Belt Katas
-            { id: "Getp1b2G1kU", title: "Bassai Dai", category: "Kata", belt: "Black Belt" },
-            { id: "M5G5wQ5q9yY", title: "Seienchin", category: "Kata", belt: "Black Belt" },
-            { id: "Hj8y_M4q4yQ", title: "Seipai", category: "Kata", belt: "Black Belt" },
-            { id: "L8k_7_6_5", title: "Kosokun Dai", category: "Kata", belt: "Black Belt" },
-            { id: "7P6X0_x8x8", title: "Kosokun Sho", category: "Kata", belt: "Black Belt" },
-            { id: "3_M7C6gX9X8", title: "Kururunfa", category: "Kata", belt: "Black Belt" },
-            { id: "1Z-X-Y-Z", title: "Nipaipo", category: "Kata", belt: "Black Belt" },
-            { id: "2Z-X-Y-Z", title: "Matsumura Rohai", category: "Kata", belt: "Black Belt" },
-            { id: "4Z-X-Y-Z", title: "Suparinpei", category: "Kata", belt: "Black Belt" },
-            { id: "5Z-X-Y-Z", title: "Gojushiho", category: "Kata", belt: "Black Belt" },
-            { id: "6Z-X-Y-Z", title: "Unshu", category: "Kata", belt: "Black Belt" },
-            { id: "7Z-X-Y-Z", title: "Annan", category: "Kata", belt: "Black Belt" },
-            { id: "8Z-X-Y-Z", title: "Chatanyara Kushanku", category: "Kata", belt: "Black Belt" },
+            { id: "https://www.youtube.com/watch?v=oZN49d3PP1k&list=PLQJ34bEd6-BHr-3QzEB0vFWvCmLKJCBtc&index=6", title: "Bassai Dai", category: "Kata", belt: "Black Belt" },
+            { id: "https://www.youtube.com/watch?v=HzrLrn-BBt0&list=PLQJ34bEd6-BHr-3QzEB0vFWvCmLKJCBtc&index=7", title: "Kosokun Dai", category: "Kata", belt: "Black Belt" }, 
+            { id: "https://www.youtube.com/watch?v=QaTQSNAz7Qg", title: "Seienchin", category: "Kata", belt: "Black Belt" },
+            { id: "https://www.youtube.com/watch?v=L8BpNViCAZI", title: "Seipai", category: "Kata", belt: "Black Belt" },
+            { id: "https://www.youtube.com/watch?v=VsZStD3_51U", title: "Kosokun Sho", category: "Kata", belt: "Black Belt" },
+            { id: "https://www.youtube.com/watch?v=YLuyUrbVyGc", title: "Kururunfa", category: "Kata", belt: "Black Belt" },
+            { id: "https://www.youtube.com/watch?v=7mUZ-crgr1M", title: "Nipaipo", category: "Kata", belt: "Black Belt" },
+            { id: "https://www.youtube.com/watch?v=GAnR_mH65No", title: "Matsumura Rohai", category: "Kata", belt: "Black Belt" },
+            { id: "https://www.youtube.com/watch?v=YFsGCVqd0GA", title: "Suparinpei", category: "Kata", belt: "Black Belt" },
+            { id: "https://www.youtube.com/watch?v=Jn9Pjvg_Tqk", title: "Gojushiho", category: "Kata", belt: "Black Belt" },
+            { id: "https://www.youtube.com/watch?v=gtnAVIGgptQ", title: "Shisochin", category: "Kata", belt: "Black Belt" },
 
             // KUMITE
             { id: "cX-oN7itZiA", title: "Basic Kumite 1 - 3", category: "Kumite", belt: "White Belt" },
@@ -463,9 +492,19 @@
             document.getElementById('mobile-menu').classList.toggle('hidden');
         }
 
+        function getYoutubeId(urlOrId) {
+            if (!urlOrId) return '';
+            const match = urlOrId.match(/(?:youtu\.be\/|youtube\.com\/(?:embed\/|v\/|watch\?v=|watch\?.+&v=))([^&?]+)/);
+            return match ? match[1] : urlOrId;
+        }
+
         // Generate HTML for a video card
-        function createVideoCard(video) {
-            if (!video.id) {
+        function createVideoCard(video, index) {
+            const mainId = getYoutubeId(video.id);
+            const secondaryId = video.secondaryId ? getYoutubeId(video.secondaryId) : null;
+            const uniqueId = `video-container-${index}`;
+
+            if (!mainId) {
                 return `
                 <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition-shadow duration-300 opacity-90">
                     <div class="relative aspect-video bg-gray-100 flex flex-col items-center justify-center text-gray-400 border-b border-gray-200">
@@ -482,15 +521,62 @@
                 </div>`;
             }
 
-            // Simple handling for standalone HTML (split view is complex without React state management in pure JS)
-            // We'll stick to displaying the primary video for the standalone fallback to keep it robust.
-            // If split view is needed in pure HTML/JS, it requires significant DOM manipulation logic which we'll skip for brevity here unless critical.
+            if (secondaryId) {
+                return `
+                <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition-shadow duration-300">
+                    <div id="${uniqueId}" class="relative aspect-video bg-gray-900 group">
+                        <!-- Main Video (Top-Left Triangle) -->
+                        <button
+                            onclick="playVideo('${uniqueId}', '${mainId}')"
+                            class="absolute inset-0 w-full h-full group overflow-hidden clip-triangle-tl z-10"
+                            aria-label="Play Main Video: ${video.title}"
+                        >
+                            <img 
+                            src="https://img.youtube.com/vi/${mainId}/hqdefault.jpg" 
+                            alt="${video.title}" 
+                            class="absolute inset-0 w-full h-full object-cover opacity-90 group-hover:opacity-100 transition-opacity"
+                            />
+                            <div class="absolute top-1/4 left-1/4 transform -translate-x-1/2 -translate-y-1/2 z-20 pointer-events-none">
+                                <i data-lucide="play-circle" class="w-12 h-12 text-white fill-red-600 opacity-90 group-hover:scale-110 transition-transform shadow-xl"></i>
+                            </div>
+                            <div class="absolute bottom-0 right-0 w-[200%] h-[2px] bg-white transform -rotate-45 origin-bottom-right"></div>
+                        </button>
+
+                        <!-- Secondary Video (Bottom-Right Triangle) -->
+                        <button
+                            onclick="playVideo('${uniqueId}', '${secondaryId}')"
+                            class="absolute inset-0 w-full h-full group overflow-hidden clip-triangle-br z-10"
+                            aria-label="Play Alternate Video: ${video.title}"
+                        >
+                            <img 
+                            src="https://img.youtube.com/vi/${secondaryId}/hqdefault.jpg" 
+                            alt="${video.title} Alternate" 
+                            class="absolute inset-0 w-full h-full object-cover opacity-90 group-hover:opacity-100 transition-opacity"
+                            />
+                            <div class="absolute bottom-1/4 right-1/4 transform translate-x-1/2 translate-y-1/2 z-20 pointer-events-none">
+                                <i data-lucide="play-circle" class="w-12 h-12 text-white fill-blue-600 opacity-90 group-hover:scale-110 transition-transform shadow-xl"></i>
+                            </div>
+                        </button>
+                         <div class="absolute inset-0 pointer-events-none z-20" style="background: linear-gradient(to top right, transparent 49.5%, white 49.5%, white 50.5%, transparent 50.5%)"></div>
+                    </div>
+                    <div class="p-4">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-lg font-bold text-gray-800 leading-tight">${video.title}</h3>
+                            ${video.belt ? `<span class="text-xs font-semibold px-2 py-1 rounded bg-gray-100 text-gray-600 whitespace-nowrap ml-2">${video.belt}</span>` : ''}
+                        </div>
+                        <p class="text-xs text-gray-500 mt-1">Select version to play</p>
+                        ${video.description ? `<p class="text-sm text-gray-600 mt-2 line-clamp-2">${video.description}</p>` : ''}
+                    </div>
+                </div>
+                `;
+            }
+
             return `
                 <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition-shadow duration-300">
                     <div class="relative aspect-video bg-gray-900 group">
                          <iframe
                             class="w-full h-full"
-                            src="https://www.youtube.com/embed/${video.id}"
+                            src="https://www.youtube.com/embed/${mainId}"
                             title="${video.title}"
                             frameborder="0"
                             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -507,6 +593,55 @@
                     </div>
                 </div>
             `;
+        }
+
+        // Helper function to play video in split view
+        function playVideo(containerId, videoId) {
+            const container = document.getElementById(containerId);
+            if (container) {
+                container.innerHTML = `
+                    <iframe
+                        class="w-full h-full"
+                        src="https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0"
+                        title="Video Player"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen
+                    ></iframe>
+                    <button 
+                        onclick="resetVideo('${containerId}')"
+                        class="absolute top-2 right-2 bg-black bg-opacity-50 text-white rounded-full p-1 hover:bg-opacity-80 transition z-50"
+                    >
+                         <i data-lucide="x" class="w-5 h-5"></i>
+                    </button>
+                `;
+                lucide.createIcons();
+            }
+        }
+        
+        // Very basic reset function (re-renders the whole grid is easiest, but let's try to just reload the page/section or assume user navigates away)
+        // A full reset would require storing the original video object in the DOM or state. 
+        // For simplicity in this standalone script, we will just reload the grid if needed, or simply let the user navigate away.
+        // But to make the 'X' button work, we can just re-trigger the router for the current page.
+        function resetVideo(containerId) {
+             // In a real app we'd have state. Here, simply refreshing the current view works well enough.
+             const activeSection = document.querySelector('.page-section.active').id;
+             if(activeSection === 'grid-page') {
+                 // We need to know which category we are in. 
+                 // We can infer it or store it. For now, let's just use the router to refresh 'katas' if that is most likely.
+                 // Actually, a simpler way is to just let the iframe stay until they navigate away.
+                 // But if we want to "close" it to see the split view again:
+                 const pageTitle = document.getElementById('page-title').textContent;
+                 if(pageTitle.includes('Kata')) router('katas');
+                 else if(pageTitle.includes('Kumite')) router('kumite');
+                 else if(pageTitle.includes('Basic')) router('basics');
+                 else if(pageTitle.includes('Advanced')) router('advanced');
+                 else if(pageTitle.includes('Search')) {
+                     // handling search reset is tricky without state, but manageable.
+                     const searchInput = document.getElementById('desktop-search').value;
+                     handleSearch(searchInput);
+                 }
+             }
         }
 
         // Render generic grid pages (Basics, Advanced, Katas, Kumite, Search)
@@ -554,7 +689,9 @@
 
             // Render
             if (filtered.length > 0) {
-                grid.innerHTML = filtered.map(createVideoCard).join('');
+                // Pass index to create unique IDs for split view containers
+                grid.innerHTML = filtered.map((v, i) => createVideoCard(v, i)).join('');
+                lucide.createIcons(); // Re-init icons for the new HTML
             } else {
                 grid.innerHTML = `<div class="col-span-full text-center py-20 bg-white rounded-lg border border-dashed border-gray-300 text-gray-500">No videos found.</div>`;
             }

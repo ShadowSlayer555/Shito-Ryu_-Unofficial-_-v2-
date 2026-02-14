@@ -7,8 +7,18 @@ interface VideoCardProps {
 }
 
 const VideoCard: React.FC<VideoCardProps> = ({ video }) => {
+  // Helper to extract ID from potential full URL
+  const getYoutubeId = (urlOrId: string) => {
+    if (!urlOrId) return '';
+    const match = urlOrId.match(/(?:youtu\.be\/|youtube\.com\/(?:embed\/|v\/|watch\?v=|watch\?.+&v=))([^&?]+)/);
+    return match ? match[1] : urlOrId;
+  };
+
+  const mainId = getYoutubeId(video.id);
+  const secondaryId = video.secondaryId ? getYoutubeId(video.secondaryId) : undefined;
+
   // If no ID, show placeholder
-  if (!video.id) {
+  if (!mainId) {
     return (
       <div className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition-shadow duration-300 opacity-90">
         <div className="relative aspect-video bg-gray-100 flex flex-col items-center justify-center text-gray-400 border-b border-gray-200">
@@ -37,7 +47,7 @@ const VideoCard: React.FC<VideoCardProps> = ({ video }) => {
 
   // If playing, render the iframe
   if (activeVideo) {
-    const videoId = activeVideo === 'main' ? video.id : video.secondaryId;
+    const videoId = activeVideo === 'main' ? mainId : secondaryId;
     return (
       <div className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition-shadow duration-300">
         <div className="relative aspect-video bg-gray-900 group">
@@ -69,7 +79,7 @@ const VideoCard: React.FC<VideoCardProps> = ({ video }) => {
     <div className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition-shadow duration-300">
       <div className="relative aspect-video bg-gray-900">
         
-        {video.secondaryId ? (
+        {secondaryId ? (
           <>
              {/* Main Video (Top-Left Triangle) */}
              <button
@@ -79,7 +89,7 @@ const VideoCard: React.FC<VideoCardProps> = ({ video }) => {
                 aria-label={`Play Main Video: ${video.title}`}
               >
                 <img 
-                  src={`https://img.youtube.com/vi/${video.id}/hqdefault.jpg`} 
+                  src={`https://img.youtube.com/vi/${mainId}/hqdefault.jpg`} 
                   alt={video.title} 
                   className="absolute inset-0 w-full h-full object-cover opacity-90 group-hover:opacity-100 transition-opacity"
                 />
@@ -98,7 +108,7 @@ const VideoCard: React.FC<VideoCardProps> = ({ video }) => {
                 aria-label={`Play Alternate Video: ${video.title}`}
               >
                 <img 
-                  src={`https://img.youtube.com/vi/${video.secondaryId}/hqdefault.jpg`} 
+                  src={`https://img.youtube.com/vi/${secondaryId}/hqdefault.jpg`} 
                   alt={video.title} 
                   className="absolute inset-0 w-full h-full object-cover opacity-90 group-hover:opacity-100 transition-opacity"
                 />
@@ -120,7 +130,7 @@ const VideoCard: React.FC<VideoCardProps> = ({ video }) => {
             aria-label={`Play ${video.title}`}
           >
             <img 
-              src={`https://img.youtube.com/vi/${video.id}/hqdefault.jpg`} 
+              src={`https://img.youtube.com/vi/${mainId}/hqdefault.jpg`} 
               alt={video.title} 
               className="absolute inset-0 w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity"
             />

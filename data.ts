@@ -10,7 +10,7 @@ export const videos: VideoItem[] = [
     description: "Full run-through of basic techniques. (Video by Anthony Au)"
   },
 
-  // --- BASICS: STANCES (Placeholders) ---
+  // --- BASICS: STANCES ---
   { id: "", title: "Stance: Heisoku Dachi", category: VideoCategory.Basics, belt: BeltLevel.White, description: "Informal Attention Stance. Feet together, toes pointing forward." },
   { id: "", title: "Stance: Musubi Dachi", category: VideoCategory.Basics, belt: BeltLevel.White, description: "Open Attention Stance. Heels together, toes open at 45 degrees." },
   { id: "", title: "Stance: Heiko Dachi", category: VideoCategory.Basics, belt: BeltLevel.White, description: "Parallel Stance. Feet shoulder width apart, toes pointing forward." },
@@ -22,7 +22,7 @@ export const videos: VideoItem[] = [
   { id: "", title: "Stance: Moto Dachi", category: VideoCategory.Basics, belt: BeltLevel.White, description: "High Forward Stance. Shorter and higher than Zenkutsu." },
   { id: "", title: "Stance: Sanchin Dachi", category: VideoCategory.Basics, belt: BeltLevel.White, description: "Hourglass Stance. Tension stance with toes turned inward." },
 
-  // --- BASICS: ATTACKS (Placeholders) ---
+  // --- BASICS: ATTACKS ---
   { id: "", title: "Seiken Tsuki", category: VideoCategory.Basics, belt: BeltLevel.White, description: "Forefist Punch using the first two knuckles." },
   { id: "", title: "Oi Tsuki", category: VideoCategory.Basics, belt: BeltLevel.White, description: "Lunge Punch. Stepping forward and punching with the same side hand." },
   { id: "", title: "Gyaku Tsuki", category: VideoCategory.Basics, belt: BeltLevel.White, description: "Reverse Punch. Punching with the hand opposite to the forward leg." },
@@ -31,21 +31,21 @@ export const videos: VideoItem[] = [
   { id: "", title: "Shuto Uchi", category: VideoCategory.Basics, belt: BeltLevel.Yellow, description: "Knife Hand Strike. Striking with the outer edge of the hand." },
   { id: "", title: "Hiji Ate", category: VideoCategory.Basics, belt: BeltLevel.Green, description: "Elbow Strike (Empi). Using the point of the elbow." },
 
-  // --- BASICS: BLOCKS (Placeholders) ---
+  // --- BASICS: BLOCKS ---
   { id: "", title: "Gedan Barai", category: VideoCategory.Basics, belt: BeltLevel.White, description: "Downward Block/Sweep. Protecting the lower body." },
   { id: "", title: "Yoko Uke", category: VideoCategory.Basics, belt: BeltLevel.White, description: "Inside Block. Blocking from inside out to protect the mid-section." },
   { id: "", title: "Yoko Uchi", category: VideoCategory.Basics, belt: BeltLevel.White, description: "Outside Block. Blocking from outside in." },
   { id: "", title: "Age Uke", category: VideoCategory.Basics, belt: BeltLevel.White, description: "Rising Block. Protecting the head/face area." },
   { id: "XJbWw_hQ5ko", title: "Shuto Uke", category: VideoCategory.Basics, belt: BeltLevel.Yellow, description: "Knife Hand Block. Classic guarding stance block." },
 
-  // --- BASICS: KICKS (Placeholders) ---
+  // --- BASICS: KICKS ---
   { id: "", title: "Mae Geri", category: VideoCategory.Basics, belt: BeltLevel.White, description: "Front Kick. Snap kick using the ball of the foot (Chusoku)." },
   { id: "", title: "Mawashi Geri", category: VideoCategory.Basics, belt: BeltLevel.Yellow, description: "Roundhouse Kick. Striking with the instep or ball of the foot." },
   { id: "", title: "Yoko Geri", category: VideoCategory.Basics, belt: BeltLevel.Yellow, description: "Side Kick. Can be performed as snap (Keage) or thrust (Kekomi)." },
   { id: "", title: "Fumikomi Geri", category: VideoCategory.Basics, belt: BeltLevel.Green, description: "Stomp Kick. Targeting the opponent's knee or foot." },
   { id: "", title: "Ushiro Geri", category: VideoCategory.Basics, belt: BeltLevel.Green, description: "Back Kick. Thrusting kick to the rear." },
 
-  // --- ADVANCED TECHNIQUES (Placeholders) ---
+  // --- ADVANCED TECHNIQUES ---
   { id: "", title: "Ura Mawashi Geri", category: VideoCategory.Advanced, belt: BeltLevel.Black, description: "Hook Kick. Striking with the heel or sole in a reverse circular motion." },
   { id: "", title: "Ushiro Mawashi Geri", category: VideoCategory.Advanced, belt: BeltLevel.Black, description: "Spinning Hook Kick (Wheel Kick). A powerful rotating kick targeting the head." },
   { id: "", title: "Kaiten Mawashi Geri", category: VideoCategory.Advanced, belt: BeltLevel.Black, description: "Rolling Wheel Kick. A sacrificial kick rolling the body to deliver power." },
@@ -65,25 +65,43 @@ export const videos: VideoItem[] = [
   { id: "eW_jHGFLAAI", title: "Kata 4: Kihon Kata Yon", category: VideoCategory.Kata, belt: BeltLevel.Yellow },
   { id: "aCZKFiDtBKY", title: "Kata 5: Kihon Kata Go", category: VideoCategory.Kata, belt: BeltLevel.Yellow },
   { id: "NVG-6aqQcYA", title: "Kata 6: Kihon Kata Roku", category: VideoCategory.Kata, belt: BeltLevel.Yellow },
-  { id: "rLTZCKjK2v8", title: "Heian Nidan", category: VideoCategory.Kata, belt: BeltLevel.Yellow },
+  { 
+    id: "https://www.youtube.com/watch?v=VlHLIrzDCwk&list=PLQJ34bEd6-BHr-3QzEB0vFWvCmLKJCBtc&index=1", 
+    secondaryId: "rLTZCKjK2v8",
+    title: "Heian Nidan", 
+    category: VideoCategory.Kata, 
+    belt: BeltLevel.Yellow 
+  },
 
   // Orange Belt
   { id: "teMbijIvnig", title: "Kata 7: Kihon Kata Shichi", category: VideoCategory.Kata, belt: BeltLevel.Orange },
   { id: "Sq-u8ZMikS4", title: "Kata 8: Kihon Kata Hachi", category: VideoCategory.Kata, belt: BeltLevel.Orange },
   { id: "NY6tE4Et3vw", title: "Kata 9: Kihon Kata Ku", category: VideoCategory.Kata, belt: BeltLevel.Orange },
-  { id: "1q4n8OYNO3o", title: "Heian Sandan", category: VideoCategory.Kata, belt: BeltLevel.Orange },
+  { 
+    id: "https://www.youtube.com/watch?v=wGHV1X-9j_k&list=PLQJ34bEd6-BHr-3QzEB0vFWvCmLKJCBtc&index=2",
+    secondaryId: "1q4n8OYNO3o",
+    title: "Heian Sandan", 
+    category: VideoCategory.Kata, 
+    belt: BeltLevel.Orange 
+  },
 
-  // Green Belt - Pinan Shodan
+  // Green Belt - Heian Shodan
   { id: "3l-jrrtoGVs", title: "Kata 10", category: VideoCategory.Kata, belt: BeltLevel.Green },
   { id: "vVKUAVr2hC4", title: "Kata 11", category: VideoCategory.Kata, belt: BeltLevel.Green },
   { id: "8e3XUs_L-C4", title: "Kata 12", category: VideoCategory.Kata, belt: BeltLevel.Green },
   { id: "T-XErnU6muQ", title: "Heian Shodan", category: VideoCategory.Kata, belt: BeltLevel.Green },
 
-  // Blue Belt - Pinan Yondan
+  // Blue Belt - Heian Yondan
   { id: "wD--FQkCxG0", title: "Kata 13", category: VideoCategory.Kata, belt: BeltLevel.Blue },
   { id: "W7LWrhb0Nu0", title: "Kata 14", category: VideoCategory.Kata, belt: BeltLevel.Blue },
   { id: "XyM1Xa_FaU8", title: "Kata 15", category: VideoCategory.Kata, belt: BeltLevel.Blue },
-  { id: "upg5kxMeCD8", title: "Heian Yondan", category: VideoCategory.Kata, belt: BeltLevel.Blue },
+  { 
+    id: "https://www.youtube.com/watch?v=7Uv6QC0ge5M&list=PLQJ34bEd6-BHr-3QzEB0vFWvCmLKJCBtc&index=3",
+    secondaryId: "upg5kxMeCD8", 
+    title: "Heian Yondan", 
+    category: VideoCategory.Kata, 
+    belt: BeltLevel.Blue 
+  },
 
   // Brown Belt
   { id: "F0-l1Z6Imug", title: "Kata 16", category: VideoCategory.Kata, belt: BeltLevel.Brown },
@@ -91,7 +109,14 @@ export const videos: VideoItem[] = [
   { id: "-rj88UMeD7Q", title: "Kata 18", category: VideoCategory.Kata, belt: BeltLevel.Brown },
   { id: "PVOw2cksEHs", title: "Kata 19", category: VideoCategory.Kata, belt: BeltLevel.Brown },
   { id: "TpBHNFXsK5E", title: "Kata 20", category: VideoCategory.Kata, belt: BeltLevel.Brown },
-  { id: "Q3k0QAFbciA", title: "Heian Godan", category: VideoCategory.Kata, belt: BeltLevel.Brown },
+  { 
+    id: "https://www.youtube.com/watch?v=dted7lBq9Tw&list=PLQJ34bEd6-BHr-3QzEB0vFWvCmLKJCBtc&index=4",
+    secondaryId: "Q3k0QAFbciA",
+    title: "Heian Godan", 
+    category: VideoCategory.Kata, 
+    belt: BeltLevel.Brown 
+  },
+  { id: "https://www.youtube.com/watch?v=jpzhI_gNFHw&list=PLQJ34bEd6-BHr-3QzEB0vFWvCmLKJCBtc&index=5", title: "Naihanchi Shodan", category: VideoCategory.Kata, belt: BeltLevel.Brown },
   { id: "4QfcGbexHI4", title: "Jitte", category: VideoCategory.Kata, belt: BeltLevel.Brown },
   { id: "7M6pzVCSsC4", title: "Jion", category: VideoCategory.Kata, belt: BeltLevel.Brown },
   { id: "HFnh5r3onlc", title: "Jiin", category: VideoCategory.Kata, belt: BeltLevel.Brown },
@@ -101,20 +126,18 @@ export const videos: VideoItem[] = [
   { id: "aUrgF39TSAM", title: "Tensho", category: VideoCategory.Kata, belt: BeltLevel.Black },
   { id: "CGVhW1pR5B0", title: "Sanchin", category: VideoCategory.Kata, belt: BeltLevel.Black },
   
-  // Major Shito-ryu Black Belt Katas (Populated with Shito-Ryu performances)
-  { id: "Getp1b2G1kU", title: "Bassai Dai", category: VideoCategory.Kata, belt: BeltLevel.Black },
-  { id: "M5G5wQ5q9yY", title: "Seienchin", category: VideoCategory.Kata, belt: BeltLevel.Black },
-  { id: "Hj8y_M4q4yQ", title: "Seipai", category: VideoCategory.Kata, belt: BeltLevel.Black },
-  { id: "L8k_7_6_5", title: "Kosokun Dai", category: VideoCategory.Kata, belt: BeltLevel.Black }, 
-  { id: "7P6X0_x8x8", title: "Kosokun Sho", category: VideoCategory.Kata, belt: BeltLevel.Black },
-  { id: "3_M7C6gX9X8", title: "Kururunfa", category: VideoCategory.Kata, belt: BeltLevel.Black },
-  { id: "1Z-X-Y-Z", title: "Nipaipo", category: VideoCategory.Kata, belt: BeltLevel.Black },
-  { id: "2Z-X-Y-Z", title: "Matsumura Rohai", category: VideoCategory.Kata, belt: BeltLevel.Black },
-  { id: "4Z-X-Y-Z", title: "Suparinpei", category: VideoCategory.Kata, belt: BeltLevel.Black },
-  { id: "5Z-X-Y-Z", title: "Gojushiho", category: VideoCategory.Kata, belt: BeltLevel.Black },
-  { id: "6Z-X-Y-Z", title: "Unshu", category: VideoCategory.Kata, belt: BeltLevel.Black },
-  { id: "7Z-X-Y-Z", title: "Annan", category: VideoCategory.Kata, belt: BeltLevel.Black },
-  { id: "8Z-X-Y-Z", title: "Chatanyara Kushanku", category: VideoCategory.Kata, belt: BeltLevel.Black },
+  // Major Shito-ryu Black Belt Katas
+  { id: "https://www.youtube.com/watch?v=oZN49d3PP1k&list=PLQJ34bEd6-BHr-3QzEB0vFWvCmLKJCBtc&index=6", title: "Bassai Dai", category: VideoCategory.Kata, belt: BeltLevel.Black },
+  { id: "https://www.youtube.com/watch?v=HzrLrn-BBt0&list=PLQJ34bEd6-BHr-3QzEB0vFWvCmLKJCBtc&index=7", title: "Kosokun Dai", category: VideoCategory.Kata, belt: BeltLevel.Black }, 
+  { id: "https://www.youtube.com/watch?v=QaTQSNAz7Qg", title: "Seienchin", category: VideoCategory.Kata, belt: BeltLevel.Black },
+  { id: "https://www.youtube.com/watch?v=L8BpNViCAZI", title: "Seipai", category: VideoCategory.Kata, belt: BeltLevel.Black },
+  { id: "https://www.youtube.com/watch?v=VsZStD3_51U", title: "Kosokun Sho", category: VideoCategory.Kata, belt: BeltLevel.Black },
+  { id: "https://www.youtube.com/watch?v=YLuyUrbVyGc", title: "Kururunfa", category: VideoCategory.Kata, belt: BeltLevel.Black },
+  { id: "https://www.youtube.com/watch?v=7mUZ-crgr1M", title: "Nipaipo", category: VideoCategory.Kata, belt: BeltLevel.Black },
+  { id: "https://www.youtube.com/watch?v=GAnR_mH65No", title: "Matsumura Rohai", category: VideoCategory.Kata, belt: BeltLevel.Black },
+  { id: "https://www.youtube.com/watch?v=YFsGCVqd0GA", title: "Suparinpei", category: VideoCategory.Kata, belt: BeltLevel.Black },
+  { id: "https://www.youtube.com/watch?v=Jn9Pjvg_Tqk", title: "Gojushiho", category: VideoCategory.Kata, belt: BeltLevel.Black },
+  { id: "https://www.youtube.com/watch?v=gtnAVIGgptQ", title: "Shisochin", category: VideoCategory.Kata, belt: BeltLevel.Black },
 
   // --- KUMITE ---
   { id: "cX-oN7itZiA", title: "Basic Kumite 1 - 3", category: VideoCategory.Kumite, belt: BeltLevel.White },
