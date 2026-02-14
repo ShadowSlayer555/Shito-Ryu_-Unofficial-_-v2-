@@ -211,27 +211,27 @@ export const videos: VideoItem[] = [
   { id: "eW_jHGFLAAI", title: "Kata 4: Kihon Kata Yon", category: VideoCategory.Kata, belt: BeltLevel.Yellow },
   { id: "aCZKFiDtBKY", title: "Kata 5: Kihon Kata Go", category: VideoCategory.Kata, belt: BeltLevel.Yellow },
   { id: "NVG-6aqQcYA", title: "Kata 6: Kihon Kata Roku", category: VideoCategory.Kata, belt: BeltLevel.Yellow },
+  { id: "rLTZCKjK2v8", title: "Heian Nidan", category: VideoCategory.Kata, belt: BeltLevel.Yellow },
 
-  // Orange Belt - Pinan Nidan
+  // Orange Belt
   { id: "teMbijIvnig", title: "Kata 7: Kihon Kata Shichi", category: VideoCategory.Kata, belt: BeltLevel.Orange },
   { id: "Sq-u8ZMikS4", title: "Kata 8: Kihon Kata Hachi", category: VideoCategory.Kata, belt: BeltLevel.Orange },
   { id: "NY6tE4Et3vw", title: "Kata 9: Kihon Kata Ku", category: VideoCategory.Kata, belt: BeltLevel.Orange },
-  { id: "rLTZCKjK2v8", title: "Heian Nidan", category: VideoCategory.Kata, belt: BeltLevel.Orange },
+  { id: "1q4n8OYNO3o", title: "Heian Sandan", category: VideoCategory.Kata, belt: BeltLevel.Orange },
 
-  // Green Belt - Pinan Sandan
+  // Green Belt
   { id: "3l-jrrtoGVs", title: "Kata 10", category: VideoCategory.Kata, belt: BeltLevel.Green },
   { id: "vVKUAVr2hC4", title: "Kata 11", category: VideoCategory.Kata, belt: BeltLevel.Green },
   { id: "8e3XUs_L-C4", title: "Kata 12", category: VideoCategory.Kata, belt: BeltLevel.Green },
-  { id: "1q4n8OYNO3o", title: "Heian Sandan", category: VideoCategory.Kata, belt: BeltLevel.Green },
+  { id: "T-XErnU6muQ", title: "Heian Shodan", category: VideoCategory.Kata, belt: BeltLevel.Green },
 
-  // Blue Belt - Pinan Shodan
+  // Blue Belt
   { id: "wD--FQkCxG0", title: "Kata 13", category: VideoCategory.Kata, belt: BeltLevel.Blue },
   { id: "W7LWrhb0Nu0", title: "Kata 14", category: VideoCategory.Kata, belt: BeltLevel.Blue },
   { id: "XyM1Xa_FaU8", title: "Kata 15", category: VideoCategory.Kata, belt: BeltLevel.Blue },
-  { id: "T-XErnU6muQ", title: "Heian Shodan", category: VideoCategory.Kata, belt: BeltLevel.Blue },
+  { id: "upg5kxMeCD8", title: "Heian Yondan", category: VideoCategory.Kata, belt: BeltLevel.Blue },
 
-  // Brown Belt - Pinan Yondan / Godan
-  { id: "upg5kxMeCD8", title: "Heian Yondan", category: VideoCategory.Kata, belt: BeltLevel.Brown },
+  // Brown Belt - Pinan Godan
   { id: "Q3k0QAFbciA", title: "Heian Godan", category: VideoCategory.Kata, belt: BeltLevel.Brown },
   { id: "4QfcGbexHI4", title: "Jitte", category: VideoCategory.Kata, belt: BeltLevel.Brown },
   { id: "7M6pzVCSsC4", title: "Jion", category: VideoCategory.Kata, belt: BeltLevel.Brown },
