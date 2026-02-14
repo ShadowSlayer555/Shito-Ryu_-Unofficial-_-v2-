@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import { videos } from '../data';
-import { VideoCategory, BeltLevel } from '../types';
-import VideoCard from '../components/VideoCard';
+import { videos } from '../data.ts';
+import { VideoCategory, BeltLevel } from '../types.ts';
+import VideoCard from '../components/VideoCard.tsx';
 
 const Katas: React.FC = () => {
   const [activeBelt, setActiveBelt] = useState<BeltLevel | 'All'>('All');

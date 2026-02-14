@@ -1,13 +1,13 @@
 import React from 'react';
 import { HashRouter as Router, Routes, Route } from 'react-router-dom';
-import Navbar from './components/Navbar';
-import Home from './pages/Home';
-import Katas from './pages/Katas';
-import Basics from './pages/Basics';
-import Kumite from './pages/Kumite';
-import Terminology from './pages/Terminology';
-import Downloads from './pages/Downloads';
-import Search from './pages/Search';
+import Navbar from './components/Navbar.tsx';
+import Home from './pages/Home.tsx';
+import Katas from './pages/Katas.tsx';
+import Basics from './pages/Basics.tsx';
+import Kumite from './pages/Kumite.tsx';
+import Terminology from './pages/Terminology.tsx';
+import Downloads from './pages/Downloads.tsx';
+import Search from './pages/Search.tsx';
 
 const App: React.FC = () => {
   return (

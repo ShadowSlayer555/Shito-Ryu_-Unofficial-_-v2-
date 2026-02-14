@@ -1,7 +1,7 @@
 import React from 'react';
 import { useSearchParams } from 'react-router-dom';
-import { videos } from '../data';
-import VideoCard from '../components/VideoCard';
+import { videos } from '../data.ts';
+import VideoCard from '../components/VideoCard.tsx';
 
 const Search: React.FC = () => {
   const [searchParams] = useSearchParams();

@@ -1,7 +1,7 @@
 import React from 'react';
-import { videos } from '../data';
-import { VideoCategory } from '../types';
-import VideoCard from '../components/VideoCard';
+import { videos } from '../data.ts';
+import { VideoCategory } from '../types.ts';
+import VideoCard from '../components/VideoCard.tsx';
 
 const Basics: React.FC = () => {
   const basicVideos = videos.filter(v => v.category === VideoCategory.Basics);

@@ -1,7 +1,7 @@
 import React from 'react';
-import { videos } from '../data';
-import { VideoCategory } from '../types';
-import VideoCard from '../components/VideoCard';
+import { videos } from '../data.ts';
+import { VideoCategory } from '../types.ts';
+import VideoCard from '../components/VideoCard.tsx';
 
 const Kumite: React.FC = () => {
   const kumiteVideos = videos.filter(v => v.category === VideoCategory.Kumite);

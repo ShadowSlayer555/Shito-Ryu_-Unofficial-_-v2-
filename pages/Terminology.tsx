@@ -1,5 +1,5 @@
 import React, { useMemo } from 'react';
-import { terminology } from '../data';
+import { terminology } from '../data.ts';
 
 const Terminology: React.FC = () => {
   // Group by category

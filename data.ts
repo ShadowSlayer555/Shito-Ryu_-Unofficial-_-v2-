@@ -1,17 +1,49 @@
-import { BeltLevel, VideoCategory, VideoItem, TerminologyItem, DownloadItem } from './types';
+import { BeltLevel, VideoCategory, VideoItem, TerminologyItem, DownloadItem } from './types.ts';
 
 // DATA EXTRACTION NOTE: 
 // The YouTube IDs below are extracted from the source request where available.
 // Others are placeholders or inferred from standard Shito-Ryu curriculum on the channel.
 
 export const videos: VideoItem[] = [
-  // --- BASICS ---
+  // --- BASICS (Kihon) ---
+  // Stances (Tachikata)
   {
     id: "gndORk_8HWY",
-    title: "Basic 1: Harai Uke, Yoko Uke, Jodan Uke",
+    title: "Basic Stances: Zenkutsu, Shiko, Moto, Neko Ashi Dachi",
     category: VideoCategory.Basics,
     belt: BeltLevel.White,
-    description: "Three basic karate techniques demonstrated by Sensei Scott Cheung."
+    description: "Fundamental stances of Shito-Ryu including Forward, Horse, Natural, and Cat stances."
+  },
+  // Blocks (Uke Waza)
+  {
+    id: "gndORk_8HWY", // Placeholder ID reused for demo
+    title: "Basic Blocks: Harai Uke, Yoko Uke, Jodan Uke",
+    category: VideoCategory.Basics,
+    belt: BeltLevel.White,
+    description: "Downward sweep, Inside block, and Rising block techniques."
+  },
+  {
+    id: "XJbWw_hQ5ko", 
+    title: "Shuto Uke (Knife Hand Block)",
+    category: VideoCategory.Basics,
+    belt: BeltLevel.Yellow,
+    description: "Proper form for knife hand guarding block."
+  },
+  // Strikes (Tsuki Waza)
+  {
+    id: "gndORk_8HWY",
+    title: "Tsuki Waza: Seiken, Oi Tsuki, Gyaku Tsuki",
+    category: VideoCategory.Basics,
+    belt: BeltLevel.White,
+    description: "Forefist punch, Lunge punch, and Reverse punch mechanics."
+  },
+  // Kicks (Geri Waza)
+  {
+    id: "gndORk_8HWY",
+    title: "Geri Waza: Mae Geri, Mawashi Geri, Yoko Geri",
+    category: VideoCategory.Basics,
+    belt: BeltLevel.White,
+    description: "Front kick, Roundhouse kick, and Side kick fundamentals."
   },
 
   // --- KATAS ---

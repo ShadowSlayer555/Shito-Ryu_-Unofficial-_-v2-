@@ -1,5 +1,5 @@
 import React from 'react';
-import { downloads } from '../data';
+import { downloads } from '../data.ts';
 import { FileText, ExternalLink } from 'lucide-react';
 
 const Downloads: React.FC = () => {

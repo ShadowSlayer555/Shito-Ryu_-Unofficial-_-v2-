@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { VideoItem } from '../types';
+import { VideoItem } from '../types.ts';
 import { PlayCircle } from 'lucide-react';
 
 interface VideoCardProps {
