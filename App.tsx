@@ -46,6 +46,10 @@ const App: React.FC = () => {
                 <a href="https://www.youtube.com/@olafsteinbrecher9519" target="_blank" rel="noreferrer" className="text-karate-red hover:text-white transition-colors flex items-center gap-1">
                   @olafsteinbrecher9519
                 </a>
+                <span className="text-gray-700 hidden sm:inline">•</span>
+                <a href="https://www.youtube.com/@hayashihakarate" target="_blank" rel="noreferrer" className="text-karate-red hover:text-white transition-colors flex items-center gap-1">
+                  @hayashihakarate
+                </a>
                  <span className="text-gray-700 hidden sm:inline">•</span>
                  <span className="text-gray-500">
                    And other dedicated contributors on YouTube

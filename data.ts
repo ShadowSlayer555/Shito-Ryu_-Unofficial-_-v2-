@@ -67,7 +67,7 @@ export const videos: VideoItem[] = [
   { id: "NVG-6aqQcYA", title: "Kata 6: Kihon Kata Roku", category: VideoCategory.Kata, belt: BeltLevel.Yellow },
   { 
     id: "https://www.youtube.com/watch?v=VlHLIrzDCwk&list=PLQJ34bEd6-BHr-3QzEB0vFWvCmLKJCBtc&index=1", 
-    secondaryId: "rLTZCKjK2v8",
+    secondaryId: "rLTZCKjK2v8", 
     title: "Heian Nidan", 
     category: VideoCategory.Kata, 
     belt: BeltLevel.Yellow 
@@ -78,8 +78,8 @@ export const videos: VideoItem[] = [
   { id: "Sq-u8ZMikS4", title: "Kata 8: Kihon Kata Hachi", category: VideoCategory.Kata, belt: BeltLevel.Orange },
   { id: "NY6tE4Et3vw", title: "Kata 9: Kihon Kata Ku", category: VideoCategory.Kata, belt: BeltLevel.Orange },
   { 
-    id: "https://www.youtube.com/watch?v=wGHV1X-9j_k&list=PLQJ34bEd6-BHr-3QzEB0vFWvCmLKJCBtc&index=2",
-    secondaryId: "1q4n8OYNO3o",
+    id: "https://www.youtube.com/watch?v=wGHV1X-9j_k&list=PLQJ34bEd6-BHr-3QzEB0vFWvCmLKJCBtc&index=2", 
+    secondaryId: "1q4n8OYNO3o", 
     title: "Heian Sandan", 
     category: VideoCategory.Kata, 
     belt: BeltLevel.Orange 
@@ -96,7 +96,7 @@ export const videos: VideoItem[] = [
   { id: "W7LWrhb0Nu0", title: "Kata 14", category: VideoCategory.Kata, belt: BeltLevel.Blue },
   { id: "XyM1Xa_FaU8", title: "Kata 15", category: VideoCategory.Kata, belt: BeltLevel.Blue },
   { 
-    id: "https://www.youtube.com/watch?v=7Uv6QC0ge5M&list=PLQJ34bEd6-BHr-3QzEB0vFWvCmLKJCBtc&index=3",
+    id: "https://www.youtube.com/watch?v=7Uv6QC0ge5M&list=PLQJ34bEd6-BHr-3QzEB0vFWvCmLKJCBtc&index=3", 
     secondaryId: "upg5kxMeCD8", 
     title: "Heian Yondan", 
     category: VideoCategory.Kata, 
@@ -110,15 +110,15 @@ export const videos: VideoItem[] = [
   { id: "PVOw2cksEHs", title: "Kata 19", category: VideoCategory.Kata, belt: BeltLevel.Brown },
   { id: "TpBHNFXsK5E", title: "Kata 20", category: VideoCategory.Kata, belt: BeltLevel.Brown },
   { 
-    id: "https://www.youtube.com/watch?v=dted7lBq9Tw&list=PLQJ34bEd6-BHr-3QzEB0vFWvCmLKJCBtc&index=4",
-    secondaryId: "Q3k0QAFbciA",
+    id: "https://www.youtube.com/watch?v=dted7lBq9Tw&list=PLQJ34bEd6-BHr-3QzEB0vFWvCmLKJCBtc&index=4", 
+    secondaryId: "Q3k0QAFbciA", 
     title: "Heian Godan", 
     category: VideoCategory.Kata, 
     belt: BeltLevel.Brown 
   },
   { id: "https://www.youtube.com/watch?v=jpzhI_gNFHw&list=PLQJ34bEd6-BHr-3QzEB0vFWvCmLKJCBtc&index=5", title: "Naihanchi Shodan", category: VideoCategory.Kata, belt: BeltLevel.Brown },
   { id: "4QfcGbexHI4", title: "Jitte", category: VideoCategory.Kata, belt: BeltLevel.Brown },
-  { id: "7M6pzVCSsC4", title: "Jion", category: VideoCategory.Kata, belt: BeltLevel.Brown },
+  { id: "7M6pzVCSsC4", title: "Jion", category: VideoCategory.Kata, belt: BeltLevel.Brown, secondaryId: "01nFR7RdO50" },
   { id: "HFnh5r3onlc", title: "Jiin", category: VideoCategory.Kata, belt: BeltLevel.Brown },
 
   // Black Belt
@@ -126,18 +126,28 @@ export const videos: VideoItem[] = [
   { id: "aUrgF39TSAM", title: "Tensho", category: VideoCategory.Kata, belt: BeltLevel.Black },
   { id: "CGVhW1pR5B0", title: "Sanchin", category: VideoCategory.Kata, belt: BeltLevel.Black },
   
-  // Major Shito-ryu Black Belt Katas
+  // Major Shito-ryu Black Belt Katas (Competition Standard)
   { id: "https://www.youtube.com/watch?v=oZN49d3PP1k&list=PLQJ34bEd6-BHr-3QzEB0vFWvCmLKJCBtc&index=6", title: "Bassai Dai", category: VideoCategory.Kata, belt: BeltLevel.Black },
+  { id: "https://www.youtube.com/watch?v=3FgtyBSWIFk", title: "Bassai Sho", category: VideoCategory.Kata, belt: BeltLevel.Black },
+  { id: "https://www.youtube.com/watch?v=zjV5f6Idb2I", title: "Tomari Bassai", category: VideoCategory.Kata, belt: BeltLevel.Black },
   { id: "https://www.youtube.com/watch?v=HzrLrn-BBt0&list=PLQJ34bEd6-BHr-3QzEB0vFWvCmLKJCBtc&index=7", title: "Kosokun Dai", category: VideoCategory.Kata, belt: BeltLevel.Black }, 
+  { id: "https://www.youtube.com/watch?v=VsZStD3_51U", title: "Kosokun Sho", category: VideoCategory.Kata, belt: BeltLevel.Black },
+  { id: "https://www.youtube.com/watch?v=TMttP-aZiso", title: "Chatanyara Kushanku", category: VideoCategory.Kata, belt: BeltLevel.Black },
   { id: "https://www.youtube.com/watch?v=QaTQSNAz7Qg", title: "Seienchin", category: VideoCategory.Kata, belt: BeltLevel.Black },
   { id: "https://www.youtube.com/watch?v=L8BpNViCAZI", title: "Seipai", category: VideoCategory.Kata, belt: BeltLevel.Black },
-  { id: "https://www.youtube.com/watch?v=VsZStD3_51U", title: "Kosokun Sho", category: VideoCategory.Kata, belt: BeltLevel.Black },
   { id: "https://www.youtube.com/watch?v=YLuyUrbVyGc", title: "Kururunfa", category: VideoCategory.Kata, belt: BeltLevel.Black },
   { id: "https://www.youtube.com/watch?v=7mUZ-crgr1M", title: "Nipaipo", category: VideoCategory.Kata, belt: BeltLevel.Black },
   { id: "https://www.youtube.com/watch?v=GAnR_mH65No", title: "Matsumura Rohai", category: VideoCategory.Kata, belt: BeltLevel.Black },
   { id: "https://www.youtube.com/watch?v=YFsGCVqd0GA", title: "Suparinpei", category: VideoCategory.Kata, belt: BeltLevel.Black },
   { id: "https://www.youtube.com/watch?v=Jn9Pjvg_Tqk", title: "Gojushiho", category: VideoCategory.Kata, belt: BeltLevel.Black },
   { id: "https://www.youtube.com/watch?v=gtnAVIGgptQ", title: "Shisochin", category: VideoCategory.Kata, belt: BeltLevel.Black },
+  { id: "https://www.youtube.com/watch?v=nPvAiI3x1rU", title: "Unshu", category: VideoCategory.Kata, belt: BeltLevel.Black },
+  { id: "https://www.youtube.com/watch?v=ZYCyB1a8sy4", title: "Anan", category: VideoCategory.Kata, belt: BeltLevel.Black },
+  { id: "https://www.youtube.com/watch?v=fhyfpA1-9dE", title: "Papuren", category: VideoCategory.Kata, belt: BeltLevel.Black },
+  { id: "https://www.youtube.com/watch?v=ndZ8jQjA5pk", title: "Annanko", category: VideoCategory.Kata, belt: BeltLevel.Black },
+  { id: "https://www.youtube.com/watch?v=dBzNY2id2Ak", title: "Niseishi", category: VideoCategory.Kata, belt: BeltLevel.Black },
+  { id: "https://www.youtube.com/watch?v=SOfR6xaUrlY", title: "Wanshu", category: VideoCategory.Kata, belt: BeltLevel.Black },
+  { id: "https://www.youtube.com/watch?v=qBmOKIZNoWs", title: "Sochin", category: VideoCategory.Kata, belt: BeltLevel.Black },
 
   // --- KUMITE ---
   { id: "cX-oN7itZiA", title: "Basic Kumite 1 - 3", category: VideoCategory.Kumite, belt: BeltLevel.White },
@@ -151,6 +161,13 @@ export const videos: VideoItem[] = [
 ];
 
 export const terminology: TerminologyItem[] = [
+  // Dojo Rules
+  { term: "1", translation: "Be moderate and courteous.", category: "Dojo Rules" },
+  { term: "2", translation: "Be righteous and have a strong sense of justice.", category: "Dojo Rules" },
+  { term: "3", translation: "Be modest in your words and actions.", category: "Dojo Rules" },
+  { term: "4", translation: "Respect others.", category: "Dojo Rules" },
+  { term: "5", translation: "Karate-Do is a lifetime study.", category: "Dojo Rules" },
+
   // Numbers
   { term: "Ichi", translation: "One", category: "Numbers" },
   { term: "Ni", translation: "Two", category: "Numbers" },
@@ -189,6 +206,12 @@ export const terminology: TerminologyItem[] = [
 ];
 
 export const downloads: DownloadItem[] = [
+  {
+    title: "Official Competition Kata List",
+    description: "Complete list of approved Katas for competition.",
+    url: "Official_Competition_Kata_List.pdf", 
+    date: "2024"
+  },
   {
     title: "WKF Competition Rules",
     description: "Official World Karate Federation competition rules and regulations.",

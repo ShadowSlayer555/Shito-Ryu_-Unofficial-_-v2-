@@ -29,7 +29,7 @@ export interface VideoItem {
 export interface TerminologyItem {
   term: string;
   translation: string;
-  category: "General" | "Numbers" | "Techniques" | "Stances";
+  category: "General" | "Numbers" | "Techniques" | "Stances" | "Dojo Rules";
 }
 
 export interface DownloadItem {
