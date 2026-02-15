@@ -46,14 +46,14 @@ export const videos: VideoItem[] = [
   { id: "", title: "Ushiro Geri", category: VideoCategory.Basics, belt: BeltLevel.Green, description: "Back Kick. Thrusting kick to the rear." },
 
   // --- ADVANCED TECHNIQUES ---
-  { id: "", title: "Ura Mawashi Geri", category: VideoCategory.Advanced, belt: BeltLevel.Black, description: "Hook Kick. Striking with the heel or sole in a reverse circular motion." },
-  { id: "", title: "Ushiro Mawashi Geri", category: VideoCategory.Advanced, belt: BeltLevel.Black, description: "Spinning Hook Kick (Wheel Kick). A powerful rotating kick targeting the head." },
-  { id: "", title: "Kaiten Mawashi Geri", category: VideoCategory.Advanced, belt: BeltLevel.Black, description: "Rolling Wheel Kick. A sacrificial kick rolling the body to deliver power." },
-  { id: "", title: "Tobi Yoko Geri", category: VideoCategory.Advanced, belt: BeltLevel.Brown, description: "Jumping Side Kick. Generating power from the jump for a thrusting kick." },
-  { id: "", title: "Kakato Otoshi", category: VideoCategory.Advanced, belt: BeltLevel.Brown, description: "Axe Kick. Bringing the heel down vertically on the opponent." },
-  { id: "", title: "Haito Uchi", category: VideoCategory.Advanced, belt: BeltLevel.Brown, description: "Ridge Hand Strike. Striking with the inner edge of the hand (thumb tucked)." },
-  { id: "", title: "Washide Uchi", category: VideoCategory.Advanced, belt: BeltLevel.Black, description: "Eagle Hand Strike. Finger tips converged to strike soft targets." },
-  { id: "", title: "Kake Uke", category: VideoCategory.Advanced, belt: BeltLevel.Brown, description: "Hooking Block. Using the wrist to hook and control an incoming strike." },
+  { id: "https://www.youtube.com/watch?v=MZcOQZSlr-E", title: "Ura Mawashi Geri", category: VideoCategory.Advanced, belt: BeltLevel.Black, description: "Hook Kick. Striking with the heel or sole in a reverse circular motion." },
+  { id: "https://www.youtube.com/watch?v=Dp4iizt_3JY&t=62s", title: "Ushiro Mawashi Geri", category: VideoCategory.Advanced, belt: BeltLevel.Black, description: "Spinning Hook Kick (Wheel Kick). A powerful rotating kick targeting the head." },
+  { id: "https://www.youtube.com/watch?v=uYsPLzUb5N8", title: "Kaiten Mawashi Geri", category: VideoCategory.Advanced, belt: BeltLevel.Black, description: "Rolling Wheel Kick. A sacrificial kick rolling the body to deliver power." },
+  { id: "https://www.youtube.com/watch?v=5kcDONJa0t8", title: "Tobi Yoko Geri", category: VideoCategory.Advanced, belt: BeltLevel.Brown, description: "Jumping Side Kick. Generating power from the jump for a thrusting kick." },
+  { id: "https://www.youtube.com/watch?v=meaxMDDikus", title: "Kakato Otoshi", category: VideoCategory.Advanced, belt: BeltLevel.Brown, description: "Axe Kick. Bringing the heel down vertically on the opponent." },
+  { id: "https://www.youtube.com/shorts/smNUTJAIVgo", title: "Haito Uchi", category: VideoCategory.Advanced, belt: BeltLevel.Brown, description: "Ridge Hand Strike. Striking with the inner edge of the hand (thumb tucked)." },
+  { id: "https://www.youtube.com/watch?v=7j-CcKSi2vs", title: "Nagashi Uke", category: VideoCategory.Advanced, belt: BeltLevel.Brown, description: "Flowing/Sweeping Block. Deflecting the attack rather than meeting it head-on." },
+  { id: "https://www.youtube.com/watch?v=iI8VkWrTqqg", title: "Kakete Uke", category: VideoCategory.Advanced, belt: BeltLevel.Brown, description: "Hooking/Trapping Block. Often used to grab the opponent's limb." },
 
   // --- KATAS ---
   // White Belt
