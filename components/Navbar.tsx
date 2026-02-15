@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { NavLink, useNavigate } from 'react-router-dom';
-import { Menu, X, Search, Download, BookOpen, Video, Shield, Award, Calendar, Zap } from 'lucide-react';
+import { Menu, X, Search, Download, BookOpen, Video, Shield, Award, Calendar, Zap, Info } from 'lucide-react';
 
 const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -23,6 +23,7 @@ const Navbar: React.FC = () => {
     { name: 'Calendar', path: '/calendar', icon: <Calendar size={18} /> },
     { name: 'Terminology', path: '/terminology', icon: <BookOpen size={18} /> },
     { name: 'Downloads', path: '/downloads', icon: <Download size={18} /> },
+    { name: 'About', path: '/about', icon: <Info size={18} /> },
   ];
 
   return (
