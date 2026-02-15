@@ -665,34 +665,30 @@
             if (category === "Dojo Rules") {
                  textToSpeak = "Dojo Rules. " + items.map(item => item.translation).join(". ");
                  lang = "en-US";
+                 const utterance = new SpeechSynthesisUtterance(textToSpeak);
+                 utterance.lang = lang;
+                 utterance.rate = 0.8;
+                 utterance.onstart = () => { playingCategory = category; renderTerminology(); };
+                 utterance.onend = () => { playingCategory = null; renderTerminology(); };
+                 utterance.onerror = () => { playingCategory = null; renderTerminology(); };
+                 window.speechSynthesis.speak(utterance);
             } else {
                  // Japanese only, no translations
-                 // Add pauses using period-space-period-space
-                 textToSpeak = items.map(item => item.term).join(". . . ");
-                 lang = "ja-JP"; 
+                 playingCategory = category;
+                 renderTerminology();
+                 
+                 items.forEach((item, index) => {
+                     const utterance = new SpeechSynthesisUtterance(item.term);
+                     utterance.lang = "ja-JP";
+                     utterance.rate = 0.8; 
+                     
+                     if (index === items.length - 1) {
+                         utterance.onend = () => { playingCategory = null; renderTerminology(); };
+                         utterance.onerror = () => { playingCategory = null; renderTerminology(); };
+                     }
+                     window.speechSynthesis.speak(utterance);
+                 });
             }
-            
-            const utterance = new SpeechSynthesisUtterance(textToSpeak);
-            utterance.lang = lang;
-            utterance.rate = 0.8;
-
-            // Track state
-            utterance.onstart = () => {
-                playingCategory = category;
-                renderTerminology();
-            };
-
-            utterance.onend = () => {
-                playingCategory = null;
-                renderTerminology();
-            };
-            
-            utterance.onerror = () => {
-                playingCategory = null;
-                renderTerminology();
-            };
-            
-            window.speechSynthesis.speak(utterance);
         }
 
         // Generate HTML for a video card

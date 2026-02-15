@@ -30,35 +30,35 @@ const Terminology: React.FC = () => {
     window.speechSynthesis.cancel();
     setPlayingCategory(category);
 
-    let textToSpeak = "";
-    let lang = "en-US";
-
     if (category === "Dojo Rules") {
-      // For Dojo Rules, read the English translations
-      textToSpeak = "Dojo Rules. " + items.map(item => item.translation).join(". ");
-      lang = "en-US";
+      // For Dojo Rules, read the English translations as a single block for natural flow
+      const textToSpeak = "Dojo Rules. " + items.map(item => item.translation).join(". ");
+      const utterance = new SpeechSynthesisUtterance(textToSpeak);
+      utterance.lang = "en-US";
+      utterance.rate = 0.9;
+      
+      utterance.onend = () => setPlayingCategory(null);
+      utterance.onerror = () => setPlayingCategory(null);
+      
+      window.speechSynthesis.speak(utterance);
     } else {
-      // For terminology, read ONLY the Japanese terms, do NOT read translation
-      // Add pause after each word by using ". "
-      textToSpeak = items.map(item => item.term).join(". . . ");
-      lang = "ja-JP"; // Set language to Japanese
+      // For Japanese terminology:
+      // 1. Read ONLY the Japanese terms (no English).
+      // 2. Queue each word individually to ensure a distinct pause and prevent reading punctuation like "dot".
+      items.forEach((item, index) => {
+        const utterance = new SpeechSynthesisUtterance(item.term);
+        utterance.lang = "ja-JP";
+        utterance.rate = 0.8; // Slightly slower for clarity
+        
+        // When the last item finishes, reset the UI state
+        if (index === items.length - 1) {
+          utterance.onend = () => setPlayingCategory(null);
+          utterance.onerror = () => setPlayingCategory(null);
+        }
+        
+        window.speechSynthesis.speak(utterance);
+      });
     }
-
-    const utterance = new SpeechSynthesisUtterance(textToSpeak);
-    utterance.lang = lang;
-    utterance.rate = 0.8; // Slower for clarity
-
-    // Reset state when speech finishes
-    utterance.onend = () => {
-      setPlayingCategory(null);
-    };
-
-    // Reset state on error
-    utterance.onerror = () => {
-      setPlayingCategory(null);
-    };
-
-    window.speechSynthesis.speak(utterance);
   };
 
   // Cleanup on unmount
